@@ -32,7 +32,6 @@ function submitPlayer() {
         document.getElementById("firstText").innerHTML = ("First Name: " + chosenPlayer[1] + " --- GREEN");
         document.getElementById("lastText").innerHTML = ("Last Name: " + chosenPlayer[2] + " --- GREEN");
         document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3] + " --- GREEN");
-        document.getElementById("statusText").innerHTML = ("Status: " + chosenPlayer[4] + " --- GREEN");
         document.getElementById("guernseyText").innerHTML = ("Guernsey: " + chosenPlayer[5] + " --- GREEN");
         document.getElementById("birthdayText").innerHTML = ("Birth Date: " + chosenPlayer[6] + " --- GREEN");
         document.getElementById("heightText").innerHTML = ("Height: " + chosenPlayer[7] + "cm --- GREEN");
@@ -44,9 +43,9 @@ function submitPlayer() {
     } else {
         colour = checkFirstName(fname)
         document.getElementById("firstText").innerHTML = ("First Name: " + chosenPlayer[1] + " --- " + colour);
-        document.getElementById("lastText").innerHTML = ("Last Name: " + chosenPlayer[2] + " --- UNKNOWN");
+        colour = checkLastName(lname)
+        document.getElementById("lastText").innerHTML = ("Last Name: " + chosenPlayer[2] + " --- " + colour);
         document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3] + " --- UNKNOWN");
-        document.getElementById("statusText").innerHTML = ("Status: " + chosenPlayer[4] + " --- UNKNOWN");
         document.getElementById("guernseyText").innerHTML = ("Guernsey: " + chosenPlayer[5] + " --- UNKNOWN");
         document.getElementById("birthdayText").innerHTML = ("Birth Date: " + chosenPlayer[6] + " --- UNKNOWN");
         document.getElementById("heightText").innerHTML = ("Height: " + chosenPlayer[7] + " --- UNKNOWN");
@@ -70,6 +69,13 @@ function chooseRandomPlayer() {
 
 function checkFirstName(fname) {
     if (fname == randomPlayer[1]) {
+        return "GREEN"
+    }
+    return "BLACK"
+}
+
+function checkLastName(lname) {
+    if (lname == randomPlayer[2]) {
         return "GREEN"
     }
     return "BLACK"
