@@ -122,8 +122,6 @@ function checkGuernsey(guernsey) {
     num = parseInt(randomPlayer[5])
     twoBelow = num - 2
     twoAbove = num + 2
-    console.log("BELOW: " + twoBelow)
-    console.log("ABOVE: " + twoAbove)
     if (guernsey == num) {
         return "GREEN"
     }
@@ -146,8 +144,17 @@ function checkBirthDate(birthDate) {
 }
 
 function checkHeight(height) {
+    num = parseInt(randomPlayer[7])
+    fiveBelow = num - 5
+    fiveAbove = num + 5
+    console.log("BELOW: " + fiveBelow)
+    console.log("ABOVE: " + fiveAbove)
+
     if (height == randomPlayer[7]) {
         return "GREEN"
+    }
+    else if (height >= fiveBelow && height <= fiveAbove) {
+        return "YELLOW"
     }
     return "BLACK"
 }
