@@ -12,6 +12,7 @@ function ChooseCategory() {
     document.getElementById("submitName").style.display="inline-block";
     var randomPlayer = chooseRandomPlayer()
     console.log(randomPlayer[1])
+    console.log(randomPlayer[3])
 }
 
 function submitPlayer() {
@@ -27,6 +28,18 @@ function submitPlayer() {
             document.getElementById("lineText").innerHTML = ("-------------------------------");
         }
     }
+    firstName = chosenPlayer[1]
+    lastName = chosenPlayer[2]
+    team = chosenPlayer[3]
+    guernsey = chosenPlayer[5]
+    birthDate = chosenPlayer[6]
+    height = chosenPlayer[7]
+    weight = chosenPlayer[8]
+    state = chosenPlayer[9]
+    recruited = chosenPlayer[10]
+    games = chosenPlayer[11]
+    goals = chosenPlayer[12]
+
     if (fname == randomPlayer[1] && lname == randomPlayer[2]) {
         document.getElementById("Text2").innerHTML = ("Correct!!!");
         document.getElementById("firstText").innerHTML = ("First Name: " + chosenPlayer[1] + " --- GREEN");
@@ -41,11 +54,12 @@ function submitPlayer() {
         document.getElementById("gamesText").innerHTML = ("Games: " + chosenPlayer[11] + " --- GREEN");
         document.getElementById("goalsText").innerHTML = ("Goals: " + chosenPlayer[12] + " --- GREEN");
     } else {
-        colour = checkFirstName(fname)
+        colour = checkFirstName(firstName)
         document.getElementById("firstText").innerHTML = ("First Name: " + chosenPlayer[1] + " --- " + colour);
-        colour = checkLastName(lname)
+        colour = checkLastName(lastName)
         document.getElementById("lastText").innerHTML = ("Last Name: " + chosenPlayer[2] + " --- " + colour);
-        document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3] + " --- UNKNOWN");
+        colour = checkTeam(team)
+        document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3] + " --- " + colour);
         document.getElementById("guernseyText").innerHTML = ("Guernsey: " + chosenPlayer[5] + " --- UNKNOWN");
         document.getElementById("birthdayText").innerHTML = ("Birth Date: " + chosenPlayer[6] + " --- UNKNOWN");
         document.getElementById("heightText").innerHTML = ("Height: " + chosenPlayer[7] + " --- UNKNOWN");
@@ -67,15 +81,24 @@ function chooseRandomPlayer() {
     return randomPlayer
 }
 
-function checkFirstName(fname) {
-    if (fname == randomPlayer[1]) {
+function checkFirstName(firstName) {
+    if (firstName == randomPlayer[1]) {
         return "GREEN"
     }
     return "BLACK"
 }
 
-function checkLastName(lname) {
-    if (lname == randomPlayer[2]) {
+function checkLastName(lastName) {
+    if (lastName == randomPlayer[2]) {
+        return "GREEN"
+    }
+    return "BLACK"
+}
+
+function checkTeam(team) {
+    console.log(randomPlayer[3].length)
+    console.log(team.length)
+    if (team == randomPlayer[3]) {
         return "GREEN"
     }
     return "BLACK"
