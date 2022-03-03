@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
-<script src="AFLWordle.js"></script>
+<title>AFLordle</title>
+<script src="AFLordleJS.js"></script>
+
 </head>
 <body>
 
@@ -11,10 +12,23 @@
 <main>
     <p id="Text1" class="Text1">  Do you wish to play AFL Wordle</p>
     <p id="Text2" class="Text2"></p>
+    <p id="Text3" class="Text3"></p>
+    <p id="firstText" class="firstText"></p>
+    <p id="lastText" class="lastText"></p>
+    <p id="teamText" class="teamText"></p>
+    <p id="statusText" class="statusText"></p>
+    <p id="guernseyText" class="guernseyText"></p>
+    <p id="birthdayText" class="birthdayText"></p>
+    <p id="heightText" class="heightText"></p>
+    <p id="weightText" class="heightText"></p>
+    <p id="stateText" class="stateText"></p>
+    <p id="recruitedText" class="recruitedText"></p>
+    <p id="gamesText" class="gamesText"></p>
+    <p id="goalsText" class="goalsText"></p>
+
     <button id="PlayButton" class="PlayButton" onClick="ChooseCategory()">Play</button>
     <button id="ExitButton" class="PlayButton" onClick="Goodbye()">Exit</button>
     <p> </p>
-
     <input id="fname" style = "display: none;" type="text" name="first-name" value="" placeholder="First Name"/> 
     <input id="lname" style = "display: none;" type="text" name="last-name" value="" placeholder="Last Name"/>
     <input id="submitName" type="submit" style = "display: none;" value="Submit" onclick="submitPlayer()">
