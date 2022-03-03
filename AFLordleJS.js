@@ -134,8 +134,13 @@ function checkGuernsey(guernsey) {
 }
 
 function checkBirthDate(birthDate) {
+    compBirthDate = randomPlayer[6].substring(0, 4)
+    selectedBirthDate = birthDate.substring(0, 4)
     if (birthDate == randomPlayer[6]) {
         return "GREEN"
+    }
+    else if (compBirthDate == selectedBirthDate) {
+        return "YELLOW"
     }
     return "BLACK"
 }
