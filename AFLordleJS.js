@@ -14,6 +14,13 @@ function ChooseCategory() {
     console.log("Name: " + randomPlayer[1] + " " + randomPlayer[2])
     console.log("Team: " + randomPlayer[3])
     console.log("Guernsey: " + randomPlayer[5])
+    console.log("Birth Date: " + randomPlayer[6])
+    console.log("Height: " + randomPlayer[7])
+    console.log("Weight: " + randomPlayer[8])
+    console.log("State: " + randomPlayer[9])
+    console.log("Recruited From: " + randomPlayer[10])
+    console.log("Games: " + randomPlayer[11])
+    console.log("Goals: " + randomPlayer[12])
 }
 
 function submitPlayer() {
@@ -63,13 +70,20 @@ function submitPlayer() {
         document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3] + " --- " + colour);
         colour = checkGuernsey(guernsey)
         document.getElementById("guernseyText").innerHTML = ("Guernsey: " + chosenPlayer[5] + " --- " + colour);
-        document.getElementById("birthdayText").innerHTML = ("Birth Date: " + chosenPlayer[6] + " --- UNKNOWN");
-        document.getElementById("heightText").innerHTML = ("Height: " + chosenPlayer[7] + " --- UNKNOWN");
-        document.getElementById("weightText").innerHTML = ("Weight: " + chosenPlayer[8] + " --- UNKNOWN");
-        document.getElementById("stateText").innerHTML = ("State: " + chosenPlayer[9] + " --- UNKNOWN");
-        document.getElementById("recruitedText").innerHTML = ("Recruited From: " + chosenPlayer[10] + " --- UNKNOWN");
-        document.getElementById("gamesText").innerHTML = ("Games: " + chosenPlayer[11] + " --- UNKNOWN");
-        document.getElementById("goalsText").innerHTML = ("Goals: " + chosenPlayer[12] + " --- UNKNOWN");
+        colour = checkBirthDate(birthDate)
+        document.getElementById("birthdayText").innerHTML = ("Birth Date: " + chosenPlayer[6] + " --- " + colour);
+        colour = checkHeight(height)
+        document.getElementById("heightText").innerHTML = ("Height: " + chosenPlayer[7] + "cm --- " + colour);
+        colour = checkWeight(weight)
+        document.getElementById("weightText").innerHTML = ("Weight: " + chosenPlayer[8] + "kg --- " + colour);
+        colour = checkState(state)
+        document.getElementById("stateText").innerHTML = ("State: " + chosenPlayer[9] + " --- " + colour);
+        colour = checkRecruited(recruited)
+        document.getElementById("recruitedText").innerHTML = ("Recruited From: " + chosenPlayer[10] + " --- " + colour);
+        colour = checkGames(games)
+        document.getElementById("gamesText").innerHTML = ("Games: " + chosenPlayer[11] + " --- " + colour);
+        colour = checkGoals(goals)
+        document.getElementById("goalsText").innerHTML = ("Goals: " + chosenPlayer[12] + " --- " + colour);
     }
 
 }
@@ -106,6 +120,55 @@ function checkTeam(team) {
 
 function checkGuernsey(guernsey) {
     if (guernsey == randomPlayer[5]) {
+        return "GREEN"
+    }
+    return "BLACK"
+}
+
+function checkBirthDate(birthDate) {
+    if (birthDate == randomPlayer[6]) {
+        return "GREEN"
+    }
+    return "BLACK"
+}
+
+function checkHeight(height) {
+    if (height == randomPlayer[7]) {
+        return "GREEN"
+    }
+    return "BLACK"
+}
+
+function checkWeight(weight) {
+    if (weight == randomPlayer[8]) {
+        return "GREEN"
+    }
+    return "BLACK"
+}
+
+function checkState(state) {
+    if (state == randomPlayer[9]) {
+        return "GREEN"
+    }
+    return "BLACK"
+}
+
+function checkRecruited(recruited) {
+    if (recruited == randomPlayer[10]) {
+        return "GREEN"
+    }
+    return "BLACK"
+}
+
+function checkGames(games) {
+    if (games == randomPlayer[11]) {
+        return "GREEN"
+    }
+    return "BLACK"
+}
+
+function checkGoals(goals) {
+    if (goals == randomPlayer[12]) {
         return "GREEN"
     }
     return "BLACK"
