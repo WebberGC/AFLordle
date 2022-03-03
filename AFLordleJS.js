@@ -22,26 +22,39 @@ function submitPlayer() {
     document.getElementById("submitName").style.display="none";
     for (let i = 0; i < players.length; i++) {
         if (fname == players[i][1] && lname == players[i][2]){
-            
+            chosenPlayer = players[i]
             document.getElementById("Text1").innerHTML = ("You selected: " + players[i][1] + " " + players[i][2] + " from " + players[i][3]); 
+            document.getElementById("lineText").innerHTML = ("-------------------------------");
         }
     }
     if (fname == randomPlayer[1] && lname == randomPlayer[2]) {
         document.getElementById("Text2").innerHTML = ("Correct!!!");
-        document.getElementById("firstText").innerHTML = ("First Name: " + randomPlayer[1] + " --- GREEN");
-        document.getElementById("lastText").innerHTML = ("Last Name: " + randomPlayer[2] + " --- GREEN");
-        document.getElementById("teamText").innerHTML = ("Team: " + randomPlayer[3] + " --- GREEN");
-        document.getElementById("statusText").innerHTML = ("Status: " + randomPlayer[4] + " --- GREEN");
-        document.getElementById("guernseyText").innerHTML = ("Guernsey: " + randomPlayer[5] + " --- GREEN");
-        document.getElementById("birthdayText").innerHTML = ("Birth Date: " + randomPlayer[6] + " --- GREEN");
-        document.getElementById("heightText").innerHTML = ("Height: " + randomPlayer[7] + " --- GREEN");
-        document.getElementById("weightText").innerHTML = ("Weight: " + randomPlayer[8] + " --- GREEN");
-        document.getElementById("stateText").innerHTML = ("State: " + randomPlayer[9] + " --- GREEN");
-        document.getElementById("recruitedText").innerHTML = ("Recruited From: " + randomPlayer[10] + " --- GREEN");
-        document.getElementById("gamesText").innerHTML = ("Games: " + randomPlayer[11] + " --- GREEN");
-        document.getElementById("goalsText").innerHTML = ("Goals: " + randomPlayer[12] + " --- GREEN");
+        document.getElementById("firstText").innerHTML = ("First Name: " + chosenPlayer[1] + " --- GREEN");
+        document.getElementById("lastText").innerHTML = ("Last Name: " + chosenPlayer[2] + " --- GREEN");
+        document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3] + " --- GREEN");
+        document.getElementById("statusText").innerHTML = ("Status: " + chosenPlayer[4] + " --- GREEN");
+        document.getElementById("guernseyText").innerHTML = ("Guernsey: " + chosenPlayer[5] + " --- GREEN");
+        document.getElementById("birthdayText").innerHTML = ("Birth Date: " + chosenPlayer[6] + " --- GREEN");
+        document.getElementById("heightText").innerHTML = ("Height: " + chosenPlayer[7] + "cm --- GREEN");
+        document.getElementById("weightText").innerHTML = ("Weight: " + chosenPlayer[8] + "kg --- GREEN");
+        document.getElementById("stateText").innerHTML = ("State: " + chosenPlayer[9] + " --- GREEN");
+        document.getElementById("recruitedText").innerHTML = ("Recruited From: " + chosenPlayer[10] + " --- GREEN");
+        document.getElementById("gamesText").innerHTML = ("Games: " + chosenPlayer[11] + " --- GREEN");
+        document.getElementById("goalsText").innerHTML = ("Goals: " + chosenPlayer[12] + " --- GREEN");
     } else {
-        document.getElementById("Text2").innerHTML = ("Wrong!!!");
+        colour = checkFirstName(fname)
+        document.getElementById("firstText").innerHTML = ("First Name: " + chosenPlayer[1] + " --- " + colour);
+        document.getElementById("lastText").innerHTML = ("Last Name: " + chosenPlayer[2] + " --- UNKNOWN");
+        document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3] + " --- UNKNOWN");
+        document.getElementById("statusText").innerHTML = ("Status: " + chosenPlayer[4] + " --- UNKNOWN");
+        document.getElementById("guernseyText").innerHTML = ("Guernsey: " + chosenPlayer[5] + " --- UNKNOWN");
+        document.getElementById("birthdayText").innerHTML = ("Birth Date: " + chosenPlayer[6] + " --- UNKNOWN");
+        document.getElementById("heightText").innerHTML = ("Height: " + chosenPlayer[7] + " --- UNKNOWN");
+        document.getElementById("weightText").innerHTML = ("Weight: " + chosenPlayer[8] + " --- UNKNOWN");
+        document.getElementById("stateText").innerHTML = ("State: " + chosenPlayer[9] + " --- UNKNOWN");
+        document.getElementById("recruitedText").innerHTML = ("Recruited From: " + chosenPlayer[10] + " --- UNKNOWN");
+        document.getElementById("gamesText").innerHTML = ("Games: " + chosenPlayer[11] + " --- UNKNOWN");
+        document.getElementById("goalsText").innerHTML = ("Goals: " + chosenPlayer[12] + " --- UNKNOWN");
     }
 
 }
@@ -53,4 +66,11 @@ function chooseRandomPlayer() {
     lastName = randomPlayer[2]
     document.getElementById("Text2").innerHTML = (firstName + " " + lastName + " was chosen.");
     return randomPlayer
+}
+
+function checkFirstName(fname) {
+    if (fname == randomPlayer[1]) {
+        return "GREEN"
+    }
+    return "BLACK"
 }
