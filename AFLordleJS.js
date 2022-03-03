@@ -2,6 +2,9 @@
 
   var randomPlayer = ""
   var randomNumber = ""
+  var statesList = ["WA", "SA", "NT", "QLD", "NSW", "ACT", "VIC"]
+  var states = [["NT", "SA"], ["WA", "QLD", "VIC", "NSW", "NT"], ["WA", "SA", "QLD"], ["NT", "SA", "NSW"], ["ACT", "QLD", "VIC", "SA"], ["NSW"], ["NSW", "SA"]]
+
 // function which shows category selection screen and allows user to choose a category
 function ChooseCategory() {
     document.getElementById("PlayButton").style.display="none";
@@ -147,8 +150,6 @@ function checkHeight(height) {
     num = parseInt(randomPlayer[7])
     fiveBelow = num - 5
     fiveAbove = num + 5
-    console.log("BELOW: " + fiveBelow)
-    console.log("ABOVE: " + fiveAbove)
 
     if (height == randomPlayer[7]) {
         return "GREEN"
@@ -160,16 +161,39 @@ function checkHeight(height) {
 }
 
 function checkWeight(weight) {
+    num = parseInt(randomPlayer[8])
+    fiveBelow = num - 5
+    fiveAbove = num + 5
+
     if (weight == randomPlayer[8]) {
         return "GREEN"
     }
+    else if (weight >= fiveBelow && weight <= fiveAbove) {
+        return "YELLOW"
+    }
     return "BLACK"
 }
+
+//var statesList = ["WA", "SA", "NT", "QLD", "NSW", "ACT", "VIC"]
+//var states = [["NT", "SA"], ["WA", "QLD", "VIC", "NSW", "NT"], ["WA", "SA", "QLD"], ["NT", "SA", "NSW"], ["ACT", "QLD", "VIC", "SA"], ["NSW"], ["NSW", "SA"]]
 
 function checkState(state) {
     if (state == randomPlayer[9]) {
         return "GREEN"
     }
+    for (let i=0; i < statesList.length; i++) {
+        if (randomPlayer[9] == statesList[i]) {
+            currState = states[i]
+            console.log(states[i].length)
+            for (let j=0; j < states[i].length; j++) {
+                console.log(states[i][j])
+                if (state == states[i][j]) {
+                    return "YELLOW"
+                }
+            }
+        }
+    }
+    
     return "BLACK"
 }
 
@@ -181,15 +205,29 @@ function checkRecruited(recruited) {
 }
 
 function checkGames(games) {
+    num = parseInt(randomPlayer[11])
+    fifteenBelow = num - 15
+    fifteenAbove = num + 15
+
     if (games == randomPlayer[11]) {
         return "GREEN"
+    }
+    else if (games >= fifteenBelow && games <= fifteenAbove) {
+        return "YELLOW"
     }
     return "BLACK"
 }
 
 function checkGoals(goals) {
+    num = parseInt(randomPlayer[12])
+    twentyBelow = num - 20
+    twentyAbove = num + 20
+
     if (goals == randomPlayer[12]) {
         return "GREEN"
+    }
+    else if (goals >= twentyBelow && goals <= twentyAbove) {
+        return "YELLOW"
     }
     return "BLACK"
 }
