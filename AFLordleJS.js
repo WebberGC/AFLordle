@@ -11,8 +11,9 @@ function ChooseCategory() {
     document.getElementById("lname").style.display="inline-block";
     document.getElementById("submitName").style.display="inline-block";
     var randomPlayer = chooseRandomPlayer()
-    console.log(randomPlayer[1])
-    console.log(randomPlayer[3])
+    console.log("Name: " + randomPlayer[1] + " " + randomPlayer[2])
+    console.log("Team: " + randomPlayer[3])
+    console.log("Guernsey: " + randomPlayer[5])
 }
 
 function submitPlayer() {
@@ -60,7 +61,8 @@ function submitPlayer() {
         document.getElementById("lastText").innerHTML = ("Last Name: " + chosenPlayer[2] + " --- " + colour);
         colour = checkTeam(team)
         document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3] + " --- " + colour);
-        document.getElementById("guernseyText").innerHTML = ("Guernsey: " + chosenPlayer[5] + " --- UNKNOWN");
+        colour = checkGuernsey(guernsey)
+        document.getElementById("guernseyText").innerHTML = ("Guernsey: " + chosenPlayer[5] + " --- " + colour);
         document.getElementById("birthdayText").innerHTML = ("Birth Date: " + chosenPlayer[6] + " --- UNKNOWN");
         document.getElementById("heightText").innerHTML = ("Height: " + chosenPlayer[7] + " --- UNKNOWN");
         document.getElementById("weightText").innerHTML = ("Weight: " + chosenPlayer[8] + " --- UNKNOWN");
@@ -96,9 +98,14 @@ function checkLastName(lastName) {
 }
 
 function checkTeam(team) {
-    console.log(randomPlayer[3].length)
-    console.log(team.length)
     if (team == randomPlayer[3]) {
+        return "GREEN"
+    }
+    return "BLACK"
+}
+
+function checkGuernsey(guernsey) {
+    if (guernsey == randomPlayer[5]) {
         return "GREEN"
     }
     return "BLACK"
