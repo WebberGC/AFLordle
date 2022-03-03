@@ -100,6 +100,19 @@ function chooseRandomPlayer() {
     return randomPlayer
 }
 
+function arrow(compNum, selectedNum) {
+    if (compNum < selectedNum) {
+        arrow1 = "\u2193"
+    }
+    else if (compNum > selectedNum) {
+        arrow1 = "\u2191"
+    }
+    else {
+        arrow1 = ""
+    }
+    return " " + arrow1
+}
+
 function checkFirstName(firstName) {
     if (firstName == randomPlayer[1]) {
         return "GREEN"
@@ -125,25 +138,30 @@ function checkGuernsey(guernsey) {
     num = parseInt(randomPlayer[5])
     twoBelow = num - 2
     twoAbove = num + 2
+    arrowPrint = arrow(randomPlayer[5], guernsey)
     if (guernsey == num) {
         return "GREEN"
     }
     else if (guernsey >= twoBelow && guernsey <= twoAbove) {
-        return "YELLOW"
+        return "YELLOW" + arrowPrint
     }
-    return "BLACK"
+    return "BLACK" + arrowPrint
 }
 
 function checkBirthDate(birthDate) {
     compBirthDate = randomPlayer[6].substring(0, 4)
     selectedBirthDate = birthDate.substring(0, 4)
+    compBirthDate = parseInt(compBirthDate)
+    selectedBirthDate = parseInt(selectedBirthDate)
+
+    arrowPrint = arrow(compBirthDate, selectedBirthDate)
     if (birthDate == randomPlayer[6]) {
         return "GREEN"
     }
     else if (compBirthDate == selectedBirthDate) {
         return "YELLOW"
     }
-    return "BLACK"
+    return "BLACK" + arrowPrint
 }
 
 function checkHeight(height) {
@@ -151,13 +169,14 @@ function checkHeight(height) {
     fiveBelow = num - 5
     fiveAbove = num + 5
 
+    arrowPrint = arrow(num, height)
     if (height == randomPlayer[7]) {
         return "GREEN"
     }
     else if (height >= fiveBelow && height <= fiveAbove) {
-        return "YELLOW"
+        return "YELLOW" + arrowPrint
     }
-    return "BLACK"
+    return "BLACK" + arrowPrint
 }
 
 function checkWeight(weight) {
@@ -165,17 +184,17 @@ function checkWeight(weight) {
     fiveBelow = num - 5
     fiveAbove = num + 5
 
+    arrowPrint = arrow(num, weight)
+
     if (weight == randomPlayer[8]) {
         return "GREEN"
     }
     else if (weight >= fiveBelow && weight <= fiveAbove) {
-        return "YELLOW"
+        return "YELLOW" + arrowPrint
     }
-    return "BLACK"
+    return "BLACK" + arrowPrint
 }
 
-//var statesList = ["WA", "SA", "NT", "QLD", "NSW", "ACT", "VIC"]
-//var states = [["NT", "SA"], ["WA", "QLD", "VIC", "NSW", "NT"], ["WA", "SA", "QLD"], ["NT", "SA", "NSW"], ["ACT", "QLD", "VIC", "SA"], ["NSW"], ["NSW", "SA"]]
 
 function checkState(state) {
     if (state == randomPlayer[9]) {
@@ -209,13 +228,15 @@ function checkGames(games) {
     fifteenBelow = num - 15
     fifteenAbove = num + 15
 
+    arrowPrint = arrow(num, games)
+
     if (games == randomPlayer[11]) {
         return "GREEN"
     }
     else if (games >= fifteenBelow && games <= fifteenAbove) {
-        return "YELLOW"
+        return "YELLOW" + arrowPrint
     }
-    return "BLACK"
+    return "BLACK" + arrowPrint
 }
 
 function checkGoals(goals) {
@@ -223,11 +244,13 @@ function checkGoals(goals) {
     twentyBelow = num - 20
     twentyAbove = num + 20
 
+    arrowPrint = arrow(num, goals)
+
     if (goals == randomPlayer[12]) {
         return "GREEN"
     }
     else if (goals >= twentyBelow && goals <= twentyAbove) {
-        return "YELLOW"
+        return "YELLOW" + arrowPrint
     }
-    return "BLACK"
+    return "BLACK" + arrowPrint
 }
