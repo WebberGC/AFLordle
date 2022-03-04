@@ -179,27 +179,27 @@ function submitPlayer() {
     // Determines the turn and shows the user the correct text with the colours associated
     document.getElementById("lineText2").innerHTML = "-------------------------------";
     if (turns == 1) {
-        document.getElementById("turn1Text").style.display="inline-block";
+        document.getElementById("turn1Text").style.display="block";
         document.getElementById("turn1Text").innerHTML = "Turn 1: | " + colourString + " " + firstName + " " + lastName;
     }
     else if (turns == 2) {
-        document.getElementById("turn2Text").style.display="inline-block";
+        document.getElementById("turn2Text").style.display="block";
         document.getElementById("turn2Text").innerHTML = "Turn 2: | " + colourString + " " + firstName + " " + lastName;
     }
     else if (turns == 3) {
-        document.getElementById("turn3Text").style.display="inline-block";
+        document.getElementById("turn3Text").style.display="block";
         document.getElementById("turn3Text").innerHTML = "Turn 3: | " + colourString + " " + firstName + " " + lastName;
     }
     else if (turns == 4) {
-        document.getElementById("turn4Text").style.display="inline-block";
+        document.getElementById("turn4Text").style.display="block";
         document.getElementById("turn4Text").innerHTML = "Turn 4: | " + colourString + " " + firstName + " " + lastName;
     }
     else if (turns == 5) {
-        document.getElementById("turn5Text").style.display="inline-block";
+        document.getElementById("turn5Text").style.display="block";
         document.getElementById("turn5Text").innerHTML = "Turn 5: | " + colourString + " " + firstName + " " + lastName;
     }
     else if (turns == 6) {
-        document.getElementById("turn6Text").style.display="inline-block";
+        document.getElementById("turn6Text").style.display="block";
         document.getElementById("turn6Text").innerHTML = "Turn 6: | " + colourString + " " + firstName + " " + lastName;
     }
 
