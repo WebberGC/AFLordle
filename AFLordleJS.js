@@ -315,7 +315,7 @@ function checkTeam(team) {
         document.getElementById("teamText").className = "green"
         return "GREEN"
     }
-    document.getElementById("firstText").className = "black"
+    document.getElementById("teamText").className = "black"
     return "BLACK"
 }
 
