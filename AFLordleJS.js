@@ -170,10 +170,10 @@ function submitPlayer() {
         document.getElementById("turn6Text").innerHTML = "Turn 6: | " + colourString + " " + firstName + " " + lastName;
     }
 
+    console.log()
     // If the user has exhausted their amount of turns and the chosen player is not the random player, remove the text boxes and submit, and show game over
     if (turns == 6 && chosenPlayer != randomPlayer) {
-        document.getElementById("fname").style.display="none";
-        document.getElementById("lname").style.display="none";
+        document.getElementById("fullName").style.display="none";
         document.getElementById("submitName").style.display="none";
         document.getElementById("Text1").innerHTML = ("Sorry, you ran out of tries. The player was " + randomPlayer[1] + " " + randomPlayer[2] + " from " + randomPlayer[3]); 
         document.getElementById("firstText").style.display="none";
