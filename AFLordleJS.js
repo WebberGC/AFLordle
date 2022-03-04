@@ -145,10 +145,22 @@ function submitPlayer() {
 
     // If the user has exhausted their amount of turns and the chosen player is not the random player, remove the text boxes and submit, and show game over
     if (turns == 6 && chosenPlayer != randomPlayer) {
-        console.log("Game Over")
         document.getElementById("fname").style.display="none";
         document.getElementById("lname").style.display="none";
         document.getElementById("submitName").style.display="none";
+        document.getElementById("Text1").innerHTML = ("Sorry, you ran out of tries. The player was " + randomPlayer[1] + " " + randomPlayer[2] + " from " + randomPlayer[3]); 
+        document.getElementById("firstText").style.display="none";
+        document.getElementById("lastText").style.display="none";
+        document.getElementById("teamText").style.display="none";
+        document.getElementById("guernseyText").style.display="none";
+        document.getElementById("birthdayText").style.display="none";
+        document.getElementById("heightText").style.display="none";
+        document.getElementById("weightText").style.display="none";
+        document.getElementById("stateText").style.display="none";
+        document.getElementById("recruitedText").style.display="none";
+        document.getElementById("gamesText").style.display="none";
+        document.getElementById("goalsText").style.display="none";
+        document.getElementById("lineText2").style.display="none";
         return
     }
 }
