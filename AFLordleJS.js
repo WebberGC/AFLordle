@@ -23,6 +23,14 @@ function playGame() {
 
     // Chooses a random player
     var randomPlayer = chooseRandomPlayer()
+
+    // if enter is pressed the submit button is pressed
+    document.body.onkeyup = function(e){
+        if(e.key == 'Enter'){
+            submitPlayer()
+        }
+    }
+
 }
 
 // Function which links text boxes to a player in the list, and checks for black, yellow or green info
