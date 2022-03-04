@@ -8,10 +8,20 @@
 
 // function which starts the game
 function playGame() {
+    turns = 0
     guessedPlayers = []
     // Hides the play and exit buttons
     document.getElementById("PlayButton").style.display="none";
     document.getElementById("ExitButton").style.display="none";
+    document.getElementById("Text2").style.display="none";
+    document.getElementById("lineText1").style.display="none";
+    document.getElementById("Text3").style.display="none";
+    document.getElementById("turn1Text").style.display="none";
+    document.getElementById("turn2Text").style.display="none";
+    document.getElementById("turn3Text").style.display="none";
+    document.getElementById("turn4Text").style.display="none";
+    document.getElementById("turn5Text").style.display="none";
+    document.getElementById("turn6Text").style.display="none";
 
     // Updates text 
     document.getElementById("Text1").innerHTML = "Enter names in the fields, then click submit:";
@@ -60,17 +70,31 @@ function submitPlayer() {
         }
         if (chosenPlayer == "") {
             document.getElementById("Text1").innerHTML = "Player not found. Enter names in the fields, then click submit:"; 
-            document.getElementById('fname').value = ""
-            document.getElementById('lname').value = ""  
+            document.getElementById('fullName').value = ""
             return
         }
         else if (guessedPlayers.includes(chosenPlayer[1] + " " + chosenPlayer[2])){
             document.getElementById("Text1").innerHTML = "Player already guessed. Enter names in the fields, then click submit:"; 
-            document.getElementById('fname').value = ""
-            document.getElementById('lname').value = ""  
+            document.getElementById('fullName').value = ""
             return
         }
     
+    document.getElementById("fullName").style.display="inline-block";
+    document.getElementById("submitName").style.display="inline-block";
+    document.getElementById("lineText1").style.display="block";
+    document.getElementById("lineText2").style.display="block";
+    document.getElementById("firstText").style.display="block";
+    document.getElementById("lastText").style.display="block";
+    document.getElementById("teamText").style.display="block";
+    document.getElementById("guernseyText").style.display="block";
+    document.getElementById("birthdayText").style.display="block";
+    document.getElementById("heightText").style.display="block";
+    document.getElementById("weightText").style.display="block";
+    document.getElementById("stateText").style.display="block";
+    document.getElementById("recruitedText").style.display="block";
+    document.getElementById("gamesText").style.display="block";
+    document.getElementById("goalsText").style.display="block";
+
     turns += 1  // Adds 1 to turn to represent each turn
 
     // Sets the variables for chosenPlayer for readability
@@ -92,9 +116,12 @@ function submitPlayer() {
 
     // If chosen player matches the random player, show everything as green and remove the text boxes and submit
     if (fname == randomPlayer[1] && lname == randomPlayer[2]) {
-        document.getElementById("Text2").innerHTML = ("You got it! Congratulations!");
-        document.getElementById("fname").style.display="none";
-        document.getElementById("lname").style.display="none";
+        document.getElementById("Text2").style.display="block";
+        document.getElementById("Text1").innerHTML = ("You got it, it was " + " " + randomPlayer[1] + " " + randomPlayer[2] + "! Congratulations!");
+        document.getElementById("Text2").innerHTML = ("Do you wish to play again?")
+        document.getElementById("PlayButton").style.display="inline-block";
+        document.getElementById("ExitButton").style.display="inline-block";
+        document.getElementById("fullName").style.display="none";
         document.getElementById("submitName").style.display="none";
         document.getElementById("firstText").style.display="none";
         document.getElementById("lastText").style.display="none";
@@ -152,21 +179,27 @@ function submitPlayer() {
     // Determines the turn and shows the user the correct text with the colours associated
     document.getElementById("lineText2").innerHTML = "-------------------------------";
     if (turns == 1) {
+        document.getElementById("turn1Text").style.display="inline-block";
         document.getElementById("turn1Text").innerHTML = "Turn 1: | " + colourString + " " + firstName + " " + lastName;
     }
     else if (turns == 2) {
+        document.getElementById("turn2Text").style.display="inline-block";
         document.getElementById("turn2Text").innerHTML = "Turn 2: | " + colourString + " " + firstName + " " + lastName;
     }
     else if (turns == 3) {
+        document.getElementById("turn3Text").style.display="inline-block";
         document.getElementById("turn3Text").innerHTML = "Turn 3: | " + colourString + " " + firstName + " " + lastName;
     }
     else if (turns == 4) {
+        document.getElementById("turn4Text").style.display="inline-block";
         document.getElementById("turn4Text").innerHTML = "Turn 4: | " + colourString + " " + firstName + " " + lastName;
     }
     else if (turns == 5) {
+        document.getElementById("turn5Text").style.display="inline-block";
         document.getElementById("turn5Text").innerHTML = "Turn 5: | " + colourString + " " + firstName + " " + lastName;
     }
     else if (turns == 6) {
+        document.getElementById("turn6Text").style.display="inline-block";
         document.getElementById("turn6Text").innerHTML = "Turn 6: | " + colourString + " " + firstName + " " + lastName;
     }
 
@@ -176,6 +209,10 @@ function submitPlayer() {
         document.getElementById("fullName").style.display="none";
         document.getElementById("submitName").style.display="none";
         document.getElementById("Text1").innerHTML = ("Sorry, you ran out of tries. The player was " + randomPlayer[1] + " " + randomPlayer[2] + " from " + randomPlayer[3]); 
+        document.getElementById("Text2").innerHTML = ("Do you wish to play again?")
+        document.getElementById("PlayButton").style.display="inline-block";
+        document.getElementById("ExitButton").style.display="inline-block";
+
         document.getElementById("firstText").style.display="none";
         document.getElementById("lastText").style.display="none";
         document.getElementById("teamText").style.display="none";

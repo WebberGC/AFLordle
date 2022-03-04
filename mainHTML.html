@@ -12,9 +12,13 @@
 <main>
     <p id="Text1" class="Text1">  Do you wish to play AFL Wordle</p>
     <p id="Text2" class="Text2"></p>
+    <p id="Text3" class="Text2"></p>
     
     <input id="fullName" style = "display: none;" type="text" name="full-name" value="" placeholder="Full Name"/> 
     <input id="submitName" type="submit" style = "display: none;" value="Submit" onclick="submitPlayer()">
+
+    <button id="PlayButton" class="PlayButton" onClick="playGame()">Play</button>
+    <button id="ExitButton" class="PlayButton" onClick="Goodbye()">Exit</button>
    
     <p id="lineText1" class="lineText1"></p>
 
@@ -39,8 +43,6 @@
     <p id="turn5Text" class="turn5Text"></p>
     <p id="turn6Text" class="turn6Text"></p>
 
-    <button id="PlayButton" class="PlayButton" onClick="playGame()">Play</button>
-    <button id="ExitButton" class="PlayButton" onClick="Goodbye()">Exit</button>
     <p> </p>
 
 </main>
