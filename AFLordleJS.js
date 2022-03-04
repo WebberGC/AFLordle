@@ -27,7 +27,6 @@ function playGame() {
 
 // Function which links text boxes to a player in the list, and checks for black, yellow or green info
 function submitPlayer() {
-    turns += 1  // Adds 1 to turn to represent each turn
 
     // stores the values of the text within the text boxes and erases the text
     var fname = document.getElementById("fname").value;
@@ -35,14 +34,23 @@ function submitPlayer() {
     document.getElementById('fname').value = ""
     document.getElementById('lname').value = ""
 
+    var chosenPlayer = ""
     // Finds the player that matches the name, sets the player as chosenPlayer and changes text to show the selected player
     for (let i = 0; i < players.length; i++) {
         if (fname == players[i][1] && lname == players[i][2]){
             chosenPlayer = players[i]
             document.getElementById("Text1").innerHTML = ("You selected: " + players[i][1] + " " + players[i][2] + " from " + players[i][3]); 
             document.getElementById("lineText1").innerHTML = ("-------------------------------");
+            }
         }
-    }
+        if (chosenPlayer == "") {
+            document.getElementById("Text1").innerHTML = "Player not found. Enter names in the fields, then click submit:"; 
+            document.getElementById('fname').value = ""
+            document.getElementById('lname').value = ""  
+            return
+        }
+
+    turns += 1  // Adds 1 to turn to represent each turn
 
     // Sets the variables for chosenPlayer for readability
     firstName = chosenPlayer[1]
