@@ -28,9 +28,15 @@ function playGame() {
 // Function which links text boxes to a player in the list, and checks for black, yellow or green info
 function submitPlayer() {
 
-    // stores the values of the text within the text boxes and erases the text
+    // stores the values of the text within the text boxes
     var fname = document.getElementById("fname").value;
     var lname =  document.getElementById("lname").value
+
+    // Capitalises the first letter in the word
+    fname = fname[0].toUpperCase() + fname.substring(1);
+    lname = lname[0].toUpperCase() + lname.substring(1);
+
+    // Erases the value inside the text boxes
     document.getElementById('fname').value = ""
     document.getElementById('lname').value = ""
 
