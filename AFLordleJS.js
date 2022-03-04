@@ -4,6 +4,7 @@
   var randomNumber = ""
   var statesList = ["WA", "SA", "NT", "QLD", "NSW", "ACT", "VIC"]
   var states = [["NT", "SA"], ["WA", "QLD", "VIC", "NSW", "NT"], ["WA", "SA", "QLD"], ["NT", "SA", "NSW"], ["ACT", "QLD", "VIC", "SA"], ["NSW"], ["NSW", "SA"]]
+  var turns = 0
 
 // function which shows category selection screen and allows user to choose a category
 function ChooseCategory() {
@@ -27,11 +28,11 @@ function ChooseCategory() {
 }
 
 function submitPlayer() {
+    turns += 1
     var fname = document.getElementById("fname").value;
     var lname =  document.getElementById("lname").value
-    document.getElementById("fname").style.display="none";
-    document.getElementById("lname").style.display="none";
-    document.getElementById("submitName").style.display="none";
+    document.getElementById('fname').value = ""
+    document.getElementById('lname').value = ""
     for (let i = 0; i < players.length; i++) {
         if (fname == players[i][1] && lname == players[i][2]){
             chosenPlayer = players[i]
@@ -53,6 +54,9 @@ function submitPlayer() {
 
     if (fname == randomPlayer[1] && lname == randomPlayer[2]) {
         document.getElementById("Text2").innerHTML = ("Correct!!!");
+        document.getElementById("fname").style.display="none";
+        document.getElementById("lname").style.display="none";
+        document.getElementById("submitName").style.display="none";
         document.getElementById("firstText").innerHTML = ("First Name: " + chosenPlayer[1] + " --- GREEN");
         document.getElementById("lastText").innerHTML = ("Last Name: " + chosenPlayer[2] + " --- GREEN");
         document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3] + " --- GREEN");
@@ -67,28 +71,65 @@ function submitPlayer() {
     } else {
         colour = checkFirstName(firstName)
         document.getElementById("firstText").innerHTML = ("First Name: " + chosenPlayer[1] + " --- " + colour);
+        colourString = ""
+        colourString += colour + " | "
         colour = checkLastName(lastName)
         document.getElementById("lastText").innerHTML = ("Last Name: " + chosenPlayer[2] + " --- " + colour);
+        colourString += colour + " | "
         colour = checkTeam(team)
         document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3] + " --- " + colour);
+        colourString += colour + " | "
         colour = checkGuernsey(guernsey)
         document.getElementById("guernseyText").innerHTML = ("Guernsey: " + chosenPlayer[5] + " --- " + colour);
+        colourString += colour + " | "
         colour = checkBirthDate(birthDate)
         document.getElementById("birthdayText").innerHTML = ("Birth Date: " + chosenPlayer[6] + " --- " + colour);
+        colourString += colour + " | "
         colour = checkHeight(height)
         document.getElementById("heightText").innerHTML = ("Height: " + chosenPlayer[7] + "cm --- " + colour);
+        colourString += colour + " | "
         colour = checkWeight(weight)
         document.getElementById("weightText").innerHTML = ("Weight: " + chosenPlayer[8] + "kg --- " + colour);
+        colourString += colour + " | "
         colour = checkState(state)
         document.getElementById("stateText").innerHTML = ("State: " + chosenPlayer[9] + " --- " + colour);
+        colourString += colour + " | "
         colour = checkRecruited(recruited)
         document.getElementById("recruitedText").innerHTML = ("Recruited From: " + chosenPlayer[10] + " --- " + colour);
+        colourString += colour + " | "
         colour = checkGames(games)
         document.getElementById("gamesText").innerHTML = ("Games: " + chosenPlayer[11] + " --- " + colour);
+        colourString += colour + " | "
         colour = checkGoals(goals)
         document.getElementById("goalsText").innerHTML = ("Goals: " + chosenPlayer[12] + " --- " + colour);
+        colourString += colour + " | "
     }
-
+    document.getElementById("Text5").innerHTML = "-------------------------------";
+    if (turns == 1) {
+        document.getElementById("Text4").innerHTML = "Turn 1: | " + colourString;
+    }
+    else if (turns == 2) {
+        document.getElementById("Text6").innerHTML = "Turn 2: | " + colourString;
+    }
+    else if (turns == 3) {
+        document.getElementById("Text7").innerHTML = "Turn 3: | " + colourString;
+    }
+    else if (turns == 4) {
+        document.getElementById("Text8").innerHTML = "Turn 4: | " + colourString;
+    }
+    else if (turns == 5) {
+        document.getElementById("Text9").innerHTML = "Turn 5: | " + colourString;
+    }
+    else if (turns == 6) {
+        document.getElementById("Text10").innerHTML = "Turn 6: | " + colourString;
+    }
+    if (turns == 6 && chosenPlayer != randomPlayer) {
+        console.log("Game Over")
+        document.getElementById("fname").style.display="none";
+        document.getElementById("lname").style.display="none";
+        document.getElementById("submitName").style.display="none";
+        return
+    }
 }
 
 function chooseRandomPlayer() {
