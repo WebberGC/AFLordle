@@ -17,8 +17,7 @@ function playGame() {
     document.getElementById("Text1").innerHTML = "Enter names in the fields, then click submit:";
 
     // Shows the text boxes and submit button
-    document.getElementById("fname").style.display="inline-block";
-    document.getElementById("lname").style.display="inline-block";
+    document.getElementById("fullName").style.display="inline-block";
     document.getElementById("submitName").style.display="inline-block";
 
     // Chooses a random player
@@ -37,16 +36,18 @@ function playGame() {
 function submitPlayer() {
 
     // stores the values of the text within the text boxes
-    var fname = document.getElementById("fname").value;
-    var lname =  document.getElementById("lname").value
+    var fname = document.getElementById("fullName").value;
+    var fullName = fname.split(" ");
+    var fname = fullName[0]
+    var lname = fullName[1]
 
     // Capitalises the first letter in the word
     fname = fname[0].toUpperCase() + fname.substring(1);
     lname = lname[0].toUpperCase() + lname.substring(1);
 
+
     // Erases the value inside the text boxes
-    document.getElementById('fname').value = ""
-    document.getElementById('lname').value = ""
+    document.getElementById('fullName').value = ""
 
     var chosenPlayer = ""
     // Finds the player that matches the name, sets the player as chosenPlayer and changes text to show the selected player
@@ -86,6 +87,7 @@ function submitPlayer() {
     games = chosenPlayer[11]
     goals = chosenPlayer[12]
 
+    // Adds guessed player to list of guessed players
     guessedPlayers.push(fullName)
 
     // If chosen player matches the random player, show everything as green and remove the text boxes and submit
