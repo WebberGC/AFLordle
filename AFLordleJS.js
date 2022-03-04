@@ -4,9 +4,11 @@
   var statesList = ["WA", "SA", "NT", "QLD", "NSW", "ACT", "VIC"]
   var states = [["NT", "SA"], ["WA", "QLD", "VIC", "NSW", "NT"], ["WA", "SA", "QLD"], ["NT", "SA", "NSW"], ["ACT", "QLD", "VIC", "SA"], ["NSW"], ["NSW", "SA"]]
   var turns = 0
+  var guessedPlayers = []
 
 // function which starts the game
 function playGame() {
+    guessedPlayers = []
     // Hides the play and exit buttons
     document.getElementById("PlayButton").style.display="none";
     document.getElementById("ExitButton").style.display="none";
@@ -21,8 +23,6 @@ function playGame() {
 
     // Chooses a random player
     var randomPlayer = chooseRandomPlayer()
-
-    // Console log of the info of random player
 }
 
 // Function which links text boxes to a player in the list, and checks for black, yellow or green info
@@ -55,12 +55,19 @@ function submitPlayer() {
             document.getElementById('lname').value = ""  
             return
         }
-
+        else if (guessedPlayers.includes(chosenPlayer[1] + " " + chosenPlayer[2])){
+            document.getElementById("Text1").innerHTML = "Player already guessed. Enter names in the fields, then click submit:"; 
+            document.getElementById('fname').value = ""
+            document.getElementById('lname').value = ""  
+            return
+        }
+    
     turns += 1  // Adds 1 to turn to represent each turn
 
     // Sets the variables for chosenPlayer for readability
     firstName = chosenPlayer[1]
     lastName = chosenPlayer[2]
+    fullName = firstName + " " + lastName
     team = chosenPlayer[3]
     guernsey = chosenPlayer[5]
     birthDate = chosenPlayer[6]
@@ -70,6 +77,8 @@ function submitPlayer() {
     recruited = chosenPlayer[10]
     games = chosenPlayer[11]
     goals = chosenPlayer[12]
+
+    guessedPlayers.push(fullName)
 
     // If chosen player matches the random player, show everything as green and remove the text boxes and submit
     if (fname == randomPlayer[1] && lname == randomPlayer[2]) {
