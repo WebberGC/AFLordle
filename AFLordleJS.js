@@ -73,21 +73,23 @@ function submitPlayer() {
 
     // If chosen player matches the random player, show everything as green and remove the text boxes and submit
     if (fname == randomPlayer[1] && lname == randomPlayer[2]) {
-        document.getElementById("Text2").innerHTML = ("Correct!!!");
+        document.getElementById("Text2").innerHTML = ("You got it! Congratulations!");
         document.getElementById("fname").style.display="none";
         document.getElementById("lname").style.display="none";
         document.getElementById("submitName").style.display="none";
-        document.getElementById("firstText").innerHTML = ("First Name: " + chosenPlayer[1] + " --- GREEN");
-        document.getElementById("lastText").innerHTML = ("Last Name: " + chosenPlayer[2] + " --- GREEN");
-        document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3] + " --- GREEN");
-        document.getElementById("guernseyText").innerHTML = ("Guernsey: " + chosenPlayer[5] + " --- GREEN");
-        document.getElementById("birthdayText").innerHTML = ("Birth Date: " + chosenPlayer[6] + " --- GREEN");
-        document.getElementById("heightText").innerHTML = ("Height: " + chosenPlayer[7] + "cm --- GREEN");
-        document.getElementById("weightText").innerHTML = ("Weight: " + chosenPlayer[8] + "kg --- GREEN");
-        document.getElementById("stateText").innerHTML = ("State: " + chosenPlayer[9] + " --- GREEN");
-        document.getElementById("recruitedText").innerHTML = ("Recruited From: " + chosenPlayer[10] + " --- GREEN");
-        document.getElementById("gamesText").innerHTML = ("Games: " + chosenPlayer[11] + " --- GREEN");
-        document.getElementById("goalsText").innerHTML = ("Goals: " + chosenPlayer[12] + " --- GREEN");
+        document.getElementById("firstText").style.display="none";
+        document.getElementById("lastText").style.display="none";
+        document.getElementById("teamText").style.display="none";
+        document.getElementById("guernseyText").style.display="none";
+        document.getElementById("birthdayText").style.display="none";
+        document.getElementById("heightText").style.display="none";
+        document.getElementById("weightText").style.display="none";
+        document.getElementById("stateText").style.display="none";
+        document.getElementById("recruitedText").style.display="none";
+        document.getElementById("gamesText").style.display="none";
+        document.getElementById("goalsText").style.display="none";
+        document.getElementById("lineText2").style.display="none";
+        return
     } 
     
     // If chosen player is not random player, display the colours associated with all the info and adds the colours to a string to present to the user
