@@ -292,24 +292,30 @@ function arrow(compNum, selectedNum) {
 // Checks if chosen players first name is the same as the random players first name
 function checkFirstName(firstName) {
     if (firstName == randomPlayer[1]) {
+        document.getElementById("firstText").className = "green"
         return "GREEN"
     }
+    document.getElementById("firstText").className = "black"
     return "BLACK"
 }
 
 // Checks if chosen players last name is the same as the random players first name
 function checkLastName(lastName) {
     if (lastName == randomPlayer[2]) {
+        document.getElementById("lastText").className = "green"
         return "GREEN"
     }
+    document.getElementById("lastText").className = "lack"
     return "BLACK"
 }
 
 // Checks if chosen players team is the same as the random players team
 function checkTeam(team) {
     if (team == randomPlayer[3]) {
+        document.getElementById("teamText").className = "green"
         return "GREEN"
     }
+    document.getElementById("firstText").className = "black"
     return "BLACK"
 }
 
@@ -321,11 +327,14 @@ function checkGuernsey(guernsey) {
     twoAbove = num + 2
     arrowPrint = arrow(randomPlayer[5], guernsey)
     if (guernsey == num) {
+        document.getElementById("guernseyText").className = "green"
         return "GREEN"
     }
     else if (guernsey >= twoBelow && guernsey <= twoAbove) {
+        document.getElementById("guernseyText").className = "yellow"
         return "YELLOW" + arrowPrint
     }
+    document.getElementById("guernseyText").className = "black"
     return "BLACK" + arrowPrint
 }
 
@@ -338,11 +347,14 @@ function checkBirthDate(birthDate) {
 
     arrowPrint = arrow(compBirthDate, selectedBirthDate)
     if (birthDate == randomPlayer[6]) {
+        document.getElementById("birthdayText").className = "green"
         return "GREEN"
     }
     else if (compBirthDate == selectedBirthDate) {
+        document.getElementById("birthdayText").className = "yellow"
         return "YELLOW"
     }
+    document.getElementById("birthdayText").className = "black"
     return "BLACK" + arrowPrint
 }
 
@@ -354,11 +366,14 @@ function checkHeight(height) {
 
     arrowPrint = arrow(num, height)
     if (height == randomPlayer[7]) {
+        document.getElementById("heightText").className = "green"
         return "GREEN"
     }
     else if (height >= fiveBelow && height <= fiveAbove) {
+        document.getElementById("heightText").className = "yellow"
         return "YELLOW" + arrowPrint
     }
+    document.getElementById("heightText").className = "black"
     return "BLACK" + arrowPrint
 }
 
@@ -371,11 +386,14 @@ function checkWeight(weight) {
     arrowPrint = arrow(num, weight)
 
     if (weight == randomPlayer[8]) {
+        document.getElementById("weightText").className = "green"
         return "GREEN"
     }
     else if (weight >= fiveBelow && weight <= fiveAbove) {
+        document.getElementById("weightText").className = "yellow"
         return "YELLOW" + arrowPrint
     }
+    document.getElementById("weightText").className = "black"
     return "BLACK" + arrowPrint
 }
 
@@ -383,6 +401,7 @@ function checkWeight(weight) {
 // Checks if chosen players state is the same or close to random players state
 function checkState(state) {
     if (state == randomPlayer[9]) {
+        document.getElementById("stateText").className = "green"
         return "GREEN"
     }
     for (let i=0; i < statesList.length; i++) {
@@ -390,20 +409,23 @@ function checkState(state) {
             currState = states[i]
             for (let j=0; j < states[i].length; j++) {
                 if (state == states[i][j]) {
+                    document.getElementById("stateText").className = "yellow"
                     return "YELLOW"
                 }
             }
         }
     }
-    
+    document.getElementById("stateText").className = "black"
     return "BLACK"
 }
 
 // Checks if chosen players recruited from is the same as random players recruited from
 function checkRecruited(recruited) {
     if (recruited == randomPlayer[10]) {
+        document.getElementById("recruitedText").className = "green"
         return "GREEN"
     }
+    document.getElementById("recruitedText").className = "black"
     return "BLACK"
 }
 
@@ -416,11 +438,14 @@ function checkGames(games) {
     arrowPrint = arrow(num, games)
 
     if (games == randomPlayer[11]) {
+        document.getElementById("gamesText").className = "green"
         return "GREEN"
     }
     else if (games >= fifteenBelow && games <= fifteenAbove) {
+        document.getElementById("gamesText").className = "yellow"
         return "YELLOW" + arrowPrint
     }
+    document.getElementById("gamesText").className = "black"
     return "BLACK" + arrowPrint
 }
 
@@ -433,10 +458,13 @@ function checkGoals(goals) {
     arrowPrint = arrow(num, goals)
 
     if (goals == randomPlayer[12]) {
+        document.getElementById("goalsText").className = "green"
         return "GREEN"
     }
     else if (goals >= twentyBelow && goals <= twentyAbove) {
+        document.getElementById("goalsText").className = "yellow"
         return "YELLOW" + arrowPrint
     }
+    document.getElementById("goalsText").className = "black"
     return "BLACK" + arrowPrint
 }
