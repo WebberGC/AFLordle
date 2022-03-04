@@ -2,15 +2,20 @@ html {
     width: 1100px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center
+}
 
+body {
+    background-color: black;
+    color:white;
 }
 
 .green {
-    color: green;
+    color: rgb(63, 189, 63);
     font-weight: bold;
 }
 
 .yellow {
-    color: rgb(22, 40, 204);
+    color: yellow;
     font-weight: bold;
 }
+
