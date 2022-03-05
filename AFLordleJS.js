@@ -53,10 +53,6 @@ function submitPlayer() {
     
     var wordCount = fullName.length
 
-
-    // Erases the value inside the text boxes
-    document.getElementById('fullName').value = ""
-
     var chosenPlayer = ""
     // Finds the player that matches the name, sets the player as chosenPlayer and changes text to show the selected player
     for (let i = 0; i < players.length; i++) {
@@ -75,13 +71,13 @@ function submitPlayer() {
             chosenPlayer = players[i]
             chosenFirstCaps = players[i][1]
             chosenLastCaps = players[i][2]
+            document.getElementById('fullName').value = ""
             document.getElementById("Text1").innerHTML = ("You selected: " + players[i][1] + " " + players[i][2] + " from " + players[i][3]); 
             document.getElementById("lineText1").innerHTML = ("-------------------------------");
             }
         }
         if (chosenPlayer == "") {
             document.getElementById("Text1").innerHTML = "Player not found. Enter names in the fields, then click submit:"; 
-            document.getElementById('fullName').value = ""
             return
         }
         else if (guessedPlayers.includes(chosenPlayer[1] + " " + chosenPlayer[2])){
