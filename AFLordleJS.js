@@ -50,11 +50,7 @@ function submitPlayer() {
     var fullName = fname.split(" ");
     var fname = fullName[0]
     var lname = fullName[1]
-
-    // Capitalises the first letter in the word
-    fname = fname[0].toUpperCase() + fname.substring(1);
-    lname = lname[0].toUpperCase() + lname.substring(1);
-
+    var wordCount = fullName.length
 
     // Erases the value inside the text boxes
     document.getElementById('fullName').value = ""
@@ -62,6 +58,17 @@ function submitPlayer() {
     var chosenPlayer = ""
     // Finds the player that matches the name, sets the player as chosenPlayer and changes text to show the selected player
     for (let i = 0; i < players.length; i++) {
+        if (wordCount != 2){
+            // Erases the value inside the text boxes
+            document.getElementById('fullName').value = ""
+            document.getElementById("Text1").innerHTML = "Invalid input. Enter names in the fields, then click submit:"; 
+            return
+        }
+
+        // Capitalises the first letter in the word
+        fname = fname[0].toUpperCase() + fname.substring(1);
+        lname = lname[0].toUpperCase() + lname.substring(1);
+
         if (fname == players[i][1] && lname == players[i][2]){
             chosenPlayer = players[i]
             document.getElementById("Text1").innerHTML = ("You selected: " + players[i][1] + " " + players[i][2] + " from " + players[i][3]); 
@@ -128,6 +135,8 @@ function submitPlayer() {
         return
     }
 }
+
+
 
 // Chooses the random computer generated player
 function chooseRandomPlayer() {
@@ -382,8 +391,6 @@ for (i = 0; i < teams.length; i++){
         var otherTeamState = teams[i][1]
     }
 }
-console.log(teamState)
-console.log(otherTeamState)
 
     // Sets the variables for the id list and all the tds
     var idArr = []
