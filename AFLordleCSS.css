@@ -1,5 +1,5 @@
 html {
-    width: 750px;
+    width: 820px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
@@ -11,10 +11,11 @@ h1 {
 
 .Text {
     font-size: 25px;
+    line-height: 10px;
 }
 
 body {
-    background-color: #121213;
+    background-color: #000000;
     color:#FFFFFF;
 }
 
@@ -24,6 +25,9 @@ body {
     background-color: #538D4E;
     font-weight: bold;
     text-shadow: 1.5px 1.5px #000000;
+    border-width: thick, solid;
+    border-color: #3a3a3c;
+    border-style: solid;
 }
 
 .yellow {
@@ -32,31 +36,70 @@ body {
     background-color: #B59F3B;
     font-weight: bold;
     text-shadow: 1.5px 1.5px #000000;
+    border-width: thick, solid;
+    border-color: #3a3a3c;
+    border-style: solid;
 }
 
 
 .black {
     width: 100px;
     height: 75px;
-    background: #3A3A3C;
+    background: #000000;
     font-weight: bold;
     text-shadow: 1.5px 1.5px #000000;
+    border-width: thick, solid;
+    border-color: #3a3a3c;
+    border-style: solid;
   }
+
+.grey {
+    width: 100px;
+    height: 75px;
+    background: #3a3a3c;
+    font-weight: bold;
+    text-shadow: 1.5px 1.5px #000000;
+    border-width: thick, solid;
+    border-color: #2a2a2b;
+    border-style: solid;
+}
 
 #submitName {
     height:40px;
     width:100px;
     font-size: large;
+    margin-bottom: 30px;
 }
 
 #fullName {
     height:32px;
     width: 160px;
     font-size:large;
+    margin-bottom: 30px;
 }
 
 .PlayButton {
     height:40px;
     width:100px;
     font-size: large;
+    margin-bottom: 14px;
+}
+
+.tableBlocks {
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+th, td {
+    width:100px;
+    height:25px;
+    background-color: #222224;
+    text-shadow: 1.5px 1.5px #000000;
+    border-width: thick, solid;
+    border-color: #414040;
+    border-style: solid;
+    margin-bottom: 20px;
+}
+.spacer {
+    height: 5px;
 }
