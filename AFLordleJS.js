@@ -233,7 +233,7 @@ function checkFirstName(firstName) {
         document.getElementById(currId).className = "green"
         return "GREEN"
     }
-    document.getElementById(currId).className = "black"
+    document.getElementById(currId).className = "grey"
     return "BLACK"
 }
 
@@ -257,7 +257,7 @@ function checkLastName(lastName) {
         document.getElementById(currId).className = "green"
         return "GREEN"
     }
-    document.getElementById(currId).className = "black"
+    document.getElementById(currId).className = "grey"
     return "BLACK"
 }
 
@@ -281,7 +281,7 @@ function checkTeam(team) {
         document.getElementById(currId).className = "green"
         return "GREEN"
     }
-    document.getElementById(currId).className = "black"
+    document.getElementById(currId).className = "grey"
     return "BLACK"
 }
 
@@ -312,12 +312,12 @@ function checkGuernsey(guernsey) {
         return "GREEN"
     }
     else if (guernsey >= twoBelow && guernsey <= twoAbove) {
-
+        document.getElementById(currId).className = "yellow"
         // Changes that box to say the first name
         document.getElementById(currId).innerHTML = guernsey + arrowPrint;
         return "YELLOW" + arrowPrint
     }
-    document.getElementById(currId).className = "black"
+    document.getElementById(currId).className = "grey"
 
     // Changes that box to say the first name
     document.getElementById(currId).innerHTML = guernsey + arrowPrint;
@@ -354,7 +354,7 @@ function checkBirthDate(birthDate) {
         document.getElementById(currId).innerHTML = birthDate;
         return "YELLOW"
     }
-    document.getElementById(currId).className = "black"
+    document.getElementById(currId).className = "grey"
     document.getElementById(currId).innerHTML = birthDate + arrowPrint;
     return "BLACK" + arrowPrint
 }
@@ -387,7 +387,7 @@ function checkHeight(height) {
         document.getElementById(currId).innerHTML = height + "cm " + arrowPrint;
         return "YELLOW" + arrowPrint
     }
-    document.getElementById(currId).className = "black"
+    document.getElementById(currId).className = "grey"
     document.getElementById(currId).innerHTML = height + "cm " + arrowPrint;
     return "BLACK" + arrowPrint
 }
@@ -442,7 +442,7 @@ for (i = 0; i < teams.length; i++){
             }
         }
     }
-    document.getElementById(currId).className = "black"
+    document.getElementById(currId).className = "grey"
     return "BLACK"
 
 }
