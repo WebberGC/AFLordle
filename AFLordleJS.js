@@ -47,10 +47,12 @@ function submitPlayer() {
 
     // stores the values of the text within the text boxes
     var fname = document.getElementById("fullName").value;
+    var lname = removeFirstWord(fname)
     var fullName = fname.split(" ");
-    var fname = fullName[0]
-    var lname = fullName[1]
+    var fname = fullName[0].toLowerCase();
+    
     var wordCount = fullName.length
+
 
     // Erases the value inside the text boxes
     document.getElementById('fullName').value = ""
@@ -58,18 +60,18 @@ function submitPlayer() {
     var chosenPlayer = ""
     // Finds the player that matches the name, sets the player as chosenPlayer and changes text to show the selected player
     for (let i = 0; i < players.length; i++) {
-        if (wordCount != 2){
+
+        playersFirst = players[i][1].toLowerCase()
+        playersLast = players[i][2].toLowerCase()
+
+        if (wordCount == 1){
             // Erases the value inside the text boxes
             document.getElementById('fullName').value = ""
             document.getElementById("Text1").innerHTML = "Invalid input. Enter names in the fields, then click submit:"; 
             return
         }
 
-        // Capitalises the first letter in the word
-        fname = fname[0].toUpperCase() + fname.substring(1);
-        lname = lname[0].toUpperCase() + lname.substring(1);
-
-        if (fname == players[i][1] && lname == players[i][2]){
+        if (fname == playersFirst && lname == playersLast){
             chosenPlayer = players[i]
             document.getElementById("Text1").innerHTML = ("You selected: " + players[i][1] + " " + players[i][2] + " from " + players[i][3]); 
             document.getElementById("lineText1").innerHTML = ("-------------------------------");
@@ -197,6 +199,15 @@ function arrow(compNum, selectedNum) {
     return " " + arrow1
 }
 
+// Removes first word in a string
+function removeFirstWord(str) {
+    var indexOfSpace = str.indexOf(" ");
+    if (indexOfSpace === -1) {
+      return '';
+    }
+    
+    return str.substring(indexOfSpace + 1);
+  }
 
 // Checks if chosen players first name is the same as the random players first name
 function checkFirstName(firstName) {
