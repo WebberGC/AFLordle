@@ -1,21 +1,32 @@
 html {
     width: 1100px;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center
+    text-align: center;
 }
 
 body {
-    background-color: black;
-    color:white;
+    background-color: #121213;
+    color:#FFFFFF;
 }
 
 .green {
-    color: rgb(63, 189, 63);
+    width: 100px;
+    height: 100px;
+    background-color: #538D4E;
     font-weight: bold;
 }
 
 .yellow {
-    color: yellow;
+    width: 100px;
+    height: 100px;
+    background-color: #B59F3B;
     font-weight: bold;
 }
 
+
+.black {
+    width: 100px;
+    height: 100px;
+    background: #3A3A3C;
+    font-weight: bold;
+  }

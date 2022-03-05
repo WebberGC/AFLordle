@@ -141,38 +141,38 @@ function submitPlayer() {
     // If chosen player is not random player, display the colours associated with all the info and adds the colours to a string to present to the user
     else {
         colour = checkFirstName(firstName)
-        document.getElementById("firstText").innerHTML = ("First Name: " + chosenPlayer[1] + " --- " + colour);
+        document.getElementById("firstText").innerHTML = ("First Name: " + chosenPlayer[1]);
         colourString = ""
         colourString += colour + " | "
         colour = checkLastName(lastName)
-        document.getElementById("lastText").innerHTML = ("Last Name: " + chosenPlayer[2] + " --- " + colour);
+        document.getElementById("lastText").innerHTML = ("Last Name: " + chosenPlayer[2]);
         colourString += colour + " | "
         colour = checkTeam(team)
-        document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3] + " --- " + colour);
+        document.getElementById("teamText").innerHTML = ("Team: " + chosenPlayer[3]);
         colourString += colour + " | "
         colour = checkGuernsey(guernsey)
-        document.getElementById("guernseyText").innerHTML = ("Guernsey: " + chosenPlayer[5] + " --- " + colour);
+        document.getElementById("guernseyText").innerHTML = ("Guernsey: " + chosenPlayer[5]);
         colourString += colour + " | "
         colour = checkBirthDate(birthDate)
-        document.getElementById("birthdayText").innerHTML = ("Birth Date: " + chosenPlayer[6] + " --- " + colour);
+        document.getElementById("birthdayText").innerHTML = ("Birth Date: " + chosenPlayer[6]);
         colourString += colour + " | "
         colour = checkHeight(height)
-        document.getElementById("heightText").innerHTML = ("Height: " + chosenPlayer[7] + "cm --- " + colour);
+        document.getElementById("heightText").innerHTML = ("Height: " + chosenPlayer[7] + "cm");
         colourString += colour + " | "
         colour = checkWeight(weight)
-        document.getElementById("weightText").innerHTML = ("Weight: " + chosenPlayer[8] + "kg --- " + colour);
+        document.getElementById("weightText").innerHTML = ("Weight: " + chosenPlayer[8] + "kg");
         colourString += colour + " | "
         colour = checkState(state)
-        document.getElementById("stateText").innerHTML = ("State: " + chosenPlayer[9] + " --- " + colour);
+        document.getElementById("stateText").innerHTML = ("State: " + chosenPlayer[9]);
         colourString += colour + " | "
         colour = checkRecruited(recruited)
-        document.getElementById("recruitedText").innerHTML = ("Recruited From: " + chosenPlayer[10] + " --- " + colour);
+        document.getElementById("recruitedText").innerHTML = ("Recruited From: " + chosenPlayer[10]);
         colourString += colour + " | "
         colour = checkGames(games)
-        document.getElementById("gamesText").innerHTML = ("Games: " + chosenPlayer[11] + " --- " + colour);
+        document.getElementById("gamesText").innerHTML = ("Games: " + chosenPlayer[11]);
         colourString += colour + " | "
         colour = checkGoals(goals)
-        document.getElementById("goalsText").innerHTML = ("Goals: " + chosenPlayer[12] + " --- " + colour);
+        document.getElementById("goalsText").innerHTML = ("Goals: " + chosenPlayer[12]);
         colourString += colour + " | "
     }
 
@@ -291,11 +291,24 @@ function arrow(compNum, selectedNum) {
 
 // Checks if chosen players first name is the same as the random players first name
 function checkFirstName(firstName) {
+    var idArr = []
+    var tds = document.getElementsByTagName("td")
+
+    for (i=0; i<tds.length; i++) 
+    {
+        idArr.push(tds[i].id);
+    }
+
+    currId = idArr[7*(turns-1)]
+    console.log(idArr)
+    console.log(currId)
+    document.getElementById(currId).innerHTML = firstName;
+
     if (firstName == randomPlayer[1]) {
-        document.getElementById("firstText").className = "green"
+        document.getElementById(currId).className = "green"
         return "GREEN"
     }
-    document.getElementById("firstText").className = "black"
+    document.getElementById(currId).className = "black"
     return "BLACK"
 }
 
@@ -305,7 +318,7 @@ function checkLastName(lastName) {
         document.getElementById("lastText").className = "green"
         return "GREEN"
     }
-    document.getElementById("lastText").className = "lack"
+    document.getElementById("lastText").className = "black"
     return "BLACK"
 }
 
@@ -467,4 +480,25 @@ function checkGoals(goals) {
     }
     document.getElementById("goalsText").className = "black"
     return "BLACK" + arrowPrint
+}
+
+function checkTurn() {
+    if (turns == 1) {
+        return "t1"
+    }
+    else if (turns == 2) {
+        return "t2"
+    }
+    else if (turns == 3) {
+        return "t3"
+    }
+    else if (turns == 4) {
+        return "t4"
+    }
+    else if (turns == 5) {
+        return "t5"
+    }
+    else if (turns == 6) {
+        return "t6"
+    }
 }
