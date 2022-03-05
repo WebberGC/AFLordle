@@ -102,7 +102,7 @@ function submitPlayer() {
     checkGuernsey(guernsey)
     checkBirthDate(birthDate)
     checkHeight(height)
-    checkState(state)
+    checkState(team, randomPlayer[3])
     console.log()
 
     // If chosen player matches the random player, show everything as green and remove the text boxes and submit
@@ -371,7 +371,20 @@ function checkHeight(height) {
 }
 
 // Checks if chosen players state is the same or close to random players state
-function checkState(state) {
+function checkState(team, otherTeam) {
+teams = [["Adelaide", "SA"], ["Brisbane Lions", "QLD"], ["Carlton", "VIC"], ["Collingwood", "VIC"], ["Essendon", "VIC"], ["Fremantle", "WA"], ["Geelong", "VIC"], ["Gold Coast", "QLD"], ["GWS", "NSW"], ["Hawthorn", "VIC"], ["Melbourne", "VIC"], ["North Melbourne", "VIC"], ["Port Adelaide", "SA"], ["Richmond", "VIC"], ["St Kilda", "VIC"], ["Sydney", "NSW"], ["Western Bulldogs", "VIC"], ["West Coast", "WA"]]
+
+for (i = 0; i < teams.length; i++){
+    if (team == teams[i][0]){
+        var teamState = teams[i][1]
+    }
+    if (otherTeam == teams[i][0]){
+        var otherTeamState = teams[i][1]
+    }
+}
+console.log(teamState)
+console.log(otherTeamState)
+
     // Sets the variables for the id list and all the tds
     var idArr = []
     var tds = document.getElementsByTagName("td")
@@ -384,17 +397,25 @@ function checkState(state) {
     currId = idArr[(7*(turns-1)) + 6]  // works out the positioning of the current id based on turn
 
      // Changes that box to say the first name
-    document.getElementById(currId).innerHTML = state;
+    document.getElementById(currId).innerHTML = teamState;
 
-    if (state == randomPlayer[9]) {
+    if (teamState == otherTeamState) {
         document.getElementById(currId).className = "green"
         return "GREEN"
     }
+
+    // Goes through the lsit of states to find players state
     for (let i=0; i < statesList.length; i++) {
-        if (randomPlayer[9] == statesList[i]) {
+
+        // If the state in the for loop matches the players state, that is the current state in the stes list (*ANOTHER LIST*)
+        if (otherTeamState == statesList[i]) {
             currState = states[i]
+
+            // Goes through all the states within the other list mentioned above
             for (let j=0; j < states[i].length; j++) {
-                if (state == states[i][j]) {
+
+                // If the 
+                if (teamState == states[i][j]) {
                     document.getElementById(currId).className = "yellow"
                     return "YELLOW"
                 }
@@ -403,6 +424,7 @@ function checkState(state) {
     }
     document.getElementById(currId).className = "black"
     return "BLACK"
+
 }
 
 function checkTurn() {
