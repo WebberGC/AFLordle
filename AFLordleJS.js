@@ -382,8 +382,6 @@ for (i = 0; i < teams.length; i++){
         var otherTeamState = teams[i][1]
     }
 }
-console.log(teamState)
-console.log(otherTeamState)
 
     // Sets the variables for the id list and all the tds
     var idArr = []
