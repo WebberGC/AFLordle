@@ -73,6 +73,8 @@ function submitPlayer() {
 
         if (fname == playersFirst && lname == playersLast){
             chosenPlayer = players[i]
+            chosenFirstCaps = players[i][1]
+            chosenLastCaps = players[i][2]
             document.getElementById("Text1").innerHTML = ("You selected: " + players[i][1] + " " + players[i][2] + " from " + players[i][3]); 
             document.getElementById("lineText1").innerHTML = ("-------------------------------");
             }
@@ -115,7 +117,7 @@ function submitPlayer() {
     console.log()
 
     // If chosen player matches the random player, show everything as green and remove the text boxes and submit
-    if (fname == randomPlayer[1] && lname == randomPlayer[2]) {
+    if (chosenFirstCaps == randomPlayer[1] && chosenLastCaps == randomPlayer[2]) {
         document.getElementById("Text2").style.display="block";
         document.getElementById("Text1").innerHTML = ("You got it, it was " + " " + randomPlayer[1] + " " + randomPlayer[2] + "! Congratulations!");
         document.getElementById("Text2").innerHTML = ("Do you wish to play again?")
