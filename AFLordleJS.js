@@ -81,7 +81,7 @@ function submitPlayer(totalWins, totalGames) {
     if (fname == "300996") {
         myStorage.setItem('totalWins', parseInt(0))
         myStorage.setItem('totalGames', parseInt(0))
-        document.getElementById('fullName').value = ""
+        document.getElementById('fullName').value = "Values reset."
         return
     }
     var lname = removeFirstWord(fname)
