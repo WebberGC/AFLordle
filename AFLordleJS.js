@@ -87,6 +87,7 @@ function submitPlayer(totalWins, totalGames) {
     var lname = removeFirstWord(fname)
     var fullName = fname.split(" ");
     var fname = fullName[0].toLowerCase();
+    var lname = lname.toLowerCase();
     
     var wordCount = fullName.length
 
