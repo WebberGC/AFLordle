@@ -207,7 +207,7 @@ th, td {
 
 .checkbox-trigger:checked + .menu-content ul {
     width: 19vw;
-    height: 10vh;
+    height: 18vh;
     transition: width 1s ease 0.1s, height 0.1s ease;
 }
 
