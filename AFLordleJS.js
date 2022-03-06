@@ -359,7 +359,7 @@ function checkGuernsey(guernsey) {
         idArr.push(tds[i].id);
     }
 
-    currId = idArr[(7*(turns-1)) + 3]  // works out the positioning of the current id based on turn
+    currId = idArr[(7*(turns-1)) + 6]  // works out the positioning of the current id based on turn
 
     num = parseInt(randomPlayer[5])
     twoBelow = num - 2
@@ -398,7 +398,7 @@ function checkBirthDate(birthDate) {
         idArr.push(tds[i].id);
     }
 
-    currId = idArr[(7*(turns-1)) + 4]  // works out the positioning of the current id based on turn
+    currId = idArr[(7*(turns-1)) + 5]  // works out the positioning of the current id based on turn
 
     compBirthDate = randomPlayer[6].substring(0, 4)
     selectedBirthDate = birthDate.substring(0, 4)
@@ -432,7 +432,7 @@ function checkHeight(height) {
         idArr.push(tds[i].id);
     }
 
-    currId = idArr[(7*(turns-1)) + 5]  // works out the positioning of the current id based on turn
+    currId = idArr[(7*(turns-1)) + 4]  // works out the positioning of the current id based on turn
 
     num = parseInt(randomPlayer[7])
     fiveBelow = num - 5
@@ -476,7 +476,7 @@ for (i = 0; i < teams.length; i++){
         idArr.push(tds[i].id);
     }
 
-    currId = idArr[(7*(turns-1)) + 6]  // works out the positioning of the current id based on turn
+    currId = idArr[(7*(turns-1)) + 3]  // works out the positioning of the current id based on turn
 
      // Changes that box to say the first name
     document.getElementById(currId).innerHTML = teamState;
