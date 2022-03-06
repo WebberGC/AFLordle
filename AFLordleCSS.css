@@ -1,22 +1,43 @@
 html {
     width: 820px;
+    height: 100%;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.checkbox-container {
+    display: block;
+    width: 50px;
+    height: 20px;
+    position: relative;
+    background: #000000;
+    float: left;
+    position: fixed;
+
 }
 
 h1 {
     font-size: 50px;
     line-height: 30px;
+    margin-right: 40px;
+
 }
 
 .Text {
     font-size: 25px;
     line-height: 10px;
+    display: block;
+    margin-right: 40px;
+
 }
 
 body {
     background-color: #000000;
     color:#FFFFFF;
+    padding: 0;
+    margin: 0;
 }
 
 .green {
@@ -83,6 +104,11 @@ body {
     width:100px;
     font-size: large;
     margin-bottom: 14px;
+    display: inline-block;
+}
+
+#ExitButton {
+    margin-right: 40px;
 }
 
 .tableBlocks {
@@ -102,4 +128,180 @@ th, td {
 }
 .spacer {
     height: 5px;
+}
+  
+
+.checkbox-trigger {
+    opacity: 0;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 0px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+/* This is the arrow */
+.hamburger-menu, .hamburger-menu::before, .hamburger-menu::after {
+    display: block;
+    position: absolute;
+    background: #4e4e4e;
+    width: 40px;
+    height: 4px;
+    margin: 1.3em 3em;
+    transition: background 0.3s;
+    box-shadow: 1px 1px #8b8a8a;
+}
+
+.hamburger-menu::before, .hamburger-menu::after {
+    content: '';
+    position: absolute;
+    margin: -0.7em 0 0;
+    transition: width 0.7s ease 0.3s, transform 0.7s ease 0.3s;
+}
+
+.hamburger-menu::after {
+    margin-top: 0.7em; 
+}
+
+.hamburger-menu {
+    position: relative;
+    display: block;
+    margin: 0;
+    margin-top: 1.45em;
+    margin-right: 0.35em;
+    margin-left: 0.35em;
+    margin-bottom: 1.45em;
+    transition: width 0.3s ease;
+}
+
+.checkbox-trigger:checked {
+    left: 202px;
+    width: 90vw;
+    height: 100vh;
+}
+
+
+/* The arrow rotation */
+.checkbox-trigger:checked + .menu-content .hamburger-menu::before {
+    width: 1.2em;
+    transform: rotate(-35deg);
+    margin-top: -0.4em;
+}
+
+/* The arrow rotation */
+.checkbox-trigger:checked + .menu-content .hamburger-menu::after {
+    width: 1.2em;
+    transform: rotate(35deg);
+    margin-top: 0.4em;
+}
+
+.checkbox-trigger:checked + .menu-content ul {
+    width: 19vw;
+    height: 10vh;
+    transition: width 1s ease 0.1s, height 0.1s ease;
+}
+
+.menu-content {
+    display: flex;
+    color: #ffffff;
+    float: left;
+}
+
+.menu-content ul {
+    display: block;
+    padding-left: 0;
+    padding-bottom: 1em;
+    margin: 0;
+    width: 0px;
+    height: 40px;
+    overflow: hidden;
+    transition: height 0.3s ease 0.7s, width 0.7s ease;
+    background-color: #313030;
+    border-width: thick, solid;
+    border-color: #3a3a3c;
+    border-style: solid;
+}
+
+/* The links in the hamburger */
+.menu-content ul li {
+    list-style: none;
+    padding-top: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    cursor: pointer;
+    transition: color 0.5s, background 0.5s;
+}
+
+.menu-content ul li:hover {
+    color: #ffffff;
+    background: #3a3a3c;
+}
+  
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+  
+.popup {
+    margin: 100px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+  
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(124, 124, 124);
+}
+
+.popup .close:hover {
+    color: #000000;
+
+}
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+    color: black;
+    text-align: left;
+}
+
+li {
+    padding-bottom: 20px;
+}
+  
+@media screen and (max-width: 700px){
+    .box{
+      width: 70%;
+    }
+    .popup{
+      width: 70%;
+    }
 }

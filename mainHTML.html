@@ -8,8 +8,58 @@
 
 </head>
 <body>
-<h1>AFL Wordle</h1>
 <main>
+    <section>
+          <span class="container">
+            <span class="checkbox-container">
+              <input class="checkbox-trigger" type="checkbox"  />
+              <span class="menu-content">
+                  <ul>
+                    <li onclick="location.href = '#rules'">Rules</li>
+                    <li onclick="location.href = '#stats'">Stats</li>
+                  </ul>
+                <span class="hamburger-menu"></span>
+              </span>
+            </span>
+          </span>
+    </section>
+
+<div id="rules" class="overlay">
+	<div class="popup">
+		<h2>Rules</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+            <ul>
+                <li>Guess the AFL player in six tries.</li>
+                <li>Each guess must be a valid player.</li>
+                <li>Hit the enter button to submit.</li>
+                <li>After each guess, the colour of the tiles will change to show how close your guess was to the player.</li>
+                <li>Green indicates a match.</li>
+                <li>Yellow indicates this attribute is close to the match.</li>
+                <li>Yellow state indicates the guessed state borders the players state.</li>
+
+            </ul>
+		</div>
+	</div>
+</div>
+
+
+<div id="stats" class="overlay">
+	<div class="popup">
+		<h2>Stats</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+            <p>Average turns: COMING SOON</p>
+            <p>Win percentage: COMING SOON</p>
+            <p>Win streak: COMING SOON</p>
+            <p>Loss streak: COMING SOON</p>
+            <p>Max win streak: COMING SOON</p>
+            <p>Max loss streak: COMING SOON</p>
+		</div>
+	</div>
+</div>
+
+    <h1>AFL Wordle</h1>
     <p id="Text1" class="Text">  Do you wish to play AFL Wordle</p>
     <p id="Text2" class="Text"></p>
     <p id="Text3" class="Text"></p>
