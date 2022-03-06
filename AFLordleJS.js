@@ -63,7 +63,7 @@ function submitPlayer() {
         if (wordCount == 1){
             // Erases the value inside the text boxes
             document.getElementById('fullName').value = ""
-            document.getElementById("Text1").innerHTML = "Invalid input. Enter names in the fields, then click submit:"; 
+            document.getElementById("Text1").innerHTML = "Invalid input. Enter names in the field, then click submit:"; 
             return
         }
 
@@ -77,11 +77,11 @@ function submitPlayer() {
             }
         }
         if (chosenPlayer == "") {
-            document.getElementById("Text1").innerHTML = "Player not found. Enter names in the fields, then click submit:"; 
+            document.getElementById("Text1").innerHTML = "Player not found. Enter names in the field, then click submit:"; 
             return
         }
         else if (guessedPlayers.includes(chosenPlayer[1] + " " + chosenPlayer[2])){
-            document.getElementById("Text1").innerHTML = "Player already guessed. Enter names in the fields, then click submit:"; 
+            document.getElementById("Text1").innerHTML = "Player already guessed. Enter names in the field, then click submit:"; 
             document.getElementById('fullName').value = ""
             return
         }
