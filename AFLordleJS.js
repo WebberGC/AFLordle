@@ -34,7 +34,7 @@ window.onload = function SetValuesOnStartup() {
     }
 
     document.getElementById("winPercentage").innerHTML = "Win Percentage: " + winPercentage
-    document.getElementById("winStreak").innerHTML = "Current Win StreaK: " + winStreak
+    document.getElementById("winStreak").innerHTML = "Current Win Streak: " + winStreak
 }
 
 function SetValues(games, wins, winStreak) {
