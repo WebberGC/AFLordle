@@ -19,7 +19,7 @@ if (totalGames == null) {
 }
 
 window.onload = function SetValuesOnStartup() {
-    if (totalGames >= 1) {
+    if (totalGames == 0 || totalWins == 0) {
         var winRate = (totalWins / totalGames * 100)
         var winPercentage = parseInt(winRate) + "%"
         
