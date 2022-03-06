@@ -225,7 +225,7 @@ th, td {
     width: 0px;
     height: 40px;
     overflow: hidden;
-    transition: height 0.3s ease 0.7s, width 0.7s ease;
+    transition: height 0.3s ease 0.3s, width 0.3s ease;
     background-color: #313030;
     border-width: thick, solid;
     border-color: #3a3a3c;
