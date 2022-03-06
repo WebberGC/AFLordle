@@ -5,7 +5,7 @@
   var states = [["NT", "SA"], ["WA", "QLD", "VIC", "NSW", "NT"], ["WA", "SA", "QLD"], ["NT", "SA", "NSW"], ["ACT", "QLD", "VIC", "SA"], ["NSW"], ["NSW", "SA"]]
   var turns = 0
   var guessedPlayers = []
-
+  
 // function which starts the game
 function playGame() {
     turns = 0
