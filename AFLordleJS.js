@@ -9,6 +9,7 @@ var myStorage = window.localStorage;
 
 var totalWins = myStorage.getItem('totalWins')
 var totalGames = myStorage.getItem('totalGames')
+var winStreak = myStorage.getItem('winStreak')
 
 if (totalWins == null) {
     totalWins = 0
@@ -16,6 +17,10 @@ if (totalWins == null) {
 
 if (totalGames == null) {
     totalGames = 0
+}
+
+if (winStreak == null) {
+    winStreak = 0
 }
 
 window.onload = function SetValuesOnStartup() {
@@ -29,12 +34,20 @@ window.onload = function SetValuesOnStartup() {
     }
 
     document.getElementById("winPercentage").innerHTML = "Win Percentage: " + winPercentage
+    document.getElementById("winStreak").innerHTML = "Current Win StreaK: " + winStreak
 }
 
-function SetValues(games, wins) {
+function SetValues(games, wins, winStreak) {
     var winRate = (wins / games * 100)
     var winPercentage = parseInt(winRate) + "%"
     document.getElementById("winPercentage").innerHTML = "Win Percentage: " + winPercentage
+    if (winStreak == undefined || winStreak == 0 || winStreak == parseInt(0)) {
+        document.getElementById("winStreak").innerHTML = "Current Win Streak: " + 0
+    }
+    else {
+        document.getElementById("winStreak").innerHTML = "Current Win Streak: " + winStreak
+    }
+    
 }
 
 // function which starts the game
@@ -163,17 +176,21 @@ function submitPlayer(totalWins, totalGames) {
 
         var totalWins = myStorage.getItem('totalWins')
         var totalGames = myStorage.getItem('totalGames')
+        var winStreak = myStorage.getItem('winStreak')
 
         totalWins = parseInt(totalWins) + 1
         totalGames = parseInt(totalGames) + 1
+        winStreak = parseInt(winStreak) + 1
 
         myStorage.setItem('totalWins', totalWins)
         myStorage.setItem('totalGames', totalGames)
+        myStorage.setItem('winStreak', winStreak)
 
-        SetValues(totalGames, totalWins)
+        SetValues(totalGames, totalWins, winStreak)
 
         console.log("WINS: " + totalWins)
         console.log("GAMES: " + totalGames)
+        console.log("WIN STREAK: " + winStreak)
         return
     } 
 
@@ -191,13 +208,16 @@ function submitPlayer(totalWins, totalGames) {
 
         totalGames = parseInt(totalGames) + 1
         totalWins = parseInt(totalWins)
+        winStreak = parseInt(0)
 
         myStorage.setItem('totalGames', totalGames)
+        myStorage.setItem('winStreak', winStreak)
 
         SetValues(totalGames, totalWins)
         
         console.log("WINS: " + totalWins)
         console.log("GAMES: " + totalGames)
+        console.log("WIN STREAK: " + winStreak)
         return
     }
 }
