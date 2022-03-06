@@ -24,7 +24,7 @@ function playGame() {
     }
 
     // Updates text 
-    document.getElementById("Text1").innerHTML = "Enter names in the fields, then click submit:";
+    document.getElementById("Text1").innerHTML = "Enter names in the field, then click submit:";
 
     // Shows the text boxes and submit button
     document.getElementById("fullName").style.display="inline-block";
