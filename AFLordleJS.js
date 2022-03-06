@@ -78,6 +78,12 @@ function submitPlayer(totalWins, totalGames) {
 
     // stores the values of the text within the text boxes
     var fname = document.getElementById("fullName").value;
+    if (fname == "300996") {
+        myStorage.setItem('totalWins', parseInt(0))
+        myStorage.setItem('totalGames', parseInt(0))
+        document.getElementById('fullName').value = ""
+        return
+    }
     var lname = removeFirstWord(fname)
     var fullName = fname.split(" ");
     var fname = fullName[0].toLowerCase();
