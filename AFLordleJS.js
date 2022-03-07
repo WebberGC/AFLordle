@@ -10,6 +10,7 @@ var myStorage = window.localStorage;
 var totalWins = myStorage.getItem('totalWins')
 var totalGames = myStorage.getItem('totalGames')
 var winStreak = myStorage.getItem('winStreak')
+var maxWinStreak = myStorage.getItem('maxWinStreak')
 
 if (totalWins == null) {
     totalWins = 0
@@ -23,6 +24,15 @@ if (winStreak == null) {
     winStreak = 0
 }
 
+if (maxWinStreak == null) {
+    if (winStreak > maxWinStreak) {
+        maxWinStreak = winStreak
+    }
+    else {
+      maxWinStreak = 0  
+    }
+}
+
 window.onload = function SetValuesOnStartup() {
     if (totalGames >= 1 || totalWins >= 1) {
         var winRate = (totalWins / totalGames * 100)
@@ -30,14 +40,16 @@ window.onload = function SetValuesOnStartup() {
         
     }
     else {
-        var winPercentage = "No games played"
+        var winPercentage = "Not enough data"
     }
 
+    document.getElementById("maxWinStreak").innerHTML = "Biggest Win Streak: " + maxWinStreak
     document.getElementById("winPercentage").innerHTML = "Win Percentage: " + winPercentage
     document.getElementById("winStreak").innerHTML = "Current Win Streak: " + winStreak
+
 }
 
-function SetValues(games, wins, winStreak) {
+function SetValues(games, wins, winStreak, maxWinStreak) {
     var winRate = (wins / games * 100)
     var winPercentage = parseInt(winRate) + "%"
     document.getElementById("winPercentage").innerHTML = "Win Percentage: " + winPercentage
@@ -46,6 +58,13 @@ function SetValues(games, wins, winStreak) {
     }
     else {
         document.getElementById("winStreak").innerHTML = "Current Win Streak: " + winStreak
+    }
+
+    if (maxWinStreak == undefined || maxWinStreak == 0 || maxWinStreak == parseInt(0)) {
+        document.getElementById("maxWinStreak").innerHTML = "Biggest Win Streak: " + 0
+    }
+    else {
+        document.getElementById("maxWinStreak").innerHTML = "Biggest Win Streak: " + maxWinStreak
     }
     
 }
@@ -91,10 +110,11 @@ function submitPlayer(totalWins, totalGames) {
 
     // stores the values of the text within the text boxes
     var fname = document.getElementById("fullName").value;
-    if (fname == "300996") {
+    if (fname == "RESET") {
         myStorage.setItem('totalWins', parseInt(0))
         myStorage.setItem('totalGames', parseInt(0))
-        document.getElementById('fullName').value = "Values reset."
+        myStorage.setItem('maxWinStreak', parseInt(0))
+        document.getElementById('fullName').value = "Values have been reset."
         return
     }
     var lname = removeFirstWord(fname)
@@ -177,20 +197,28 @@ function submitPlayer(totalWins, totalGames) {
         var totalWins = myStorage.getItem('totalWins')
         var totalGames = myStorage.getItem('totalGames')
         var winStreak = myStorage.getItem('winStreak')
+        var maxWinStreak = myStorage.getItem('maxWinStreak')
 
         totalWins = parseInt(totalWins) + 1
         totalGames = parseInt(totalGames) + 1
         winStreak = parseInt(winStreak) + 1
+        
+        if (winStreak > maxWinStreak) {
+            maxWinStreak = winStreak
+        }
 
         myStorage.setItem('totalWins', totalWins)
         myStorage.setItem('totalGames', totalGames)
         myStorage.setItem('winStreak', winStreak)
+        myStorage.setItem('winStreak', winStreak)
+        myStorage.setItem('maxWinStreak', maxWinStreak)
 
-        SetValues(totalGames, totalWins, winStreak)
+        SetValues(totalGames, totalWins, winStreak, maxWinStreak)
 
         console.log("WINS: " + totalWins)
         console.log("GAMES: " + totalGames)
         console.log("WIN STREAK: " + winStreak)
+        console.log("MAX WIN STREAK: " + maxWinStreak)
         return
     } 
 
