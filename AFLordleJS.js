@@ -13,15 +13,15 @@ var winStreak = myStorage.getItem('winStreak')
 var maxWinStreak = myStorage.getItem('maxWinStreak')
 
 if (totalWins == null) {
-    totalWins = 0
+    totalWins = parseInt(0)
 }
 
 if (totalGames == null) {
-    totalGames = 0
+    totalGames = parseInt(0)
 }
 
 if (winStreak == null) {
-    winStreak = 0
+    winStreak = parseInt(0)
 }
 
 if (maxWinStreak == null) {
@@ -29,13 +29,13 @@ if (maxWinStreak == null) {
         maxWinStreak = winStreak
     }
     else {
-      maxWinStreak = 0  
+      maxWinStreak = parseInt(0)  
     }
 }
 
 window.onload = function SetValuesOnStartup() {
-    if (totalGames >= 1 || totalWins >= 1) {
-        var winRate = (totalWins / totalGames * 100)
+    if (totalGames >= parseInt(1) || totalWins >= parseInt(1)) {
+        var winRate = (totalWins / totalGames * parseInt(100))
         var winPercentage = parseInt(winRate) + "%"
         
     }
@@ -50,18 +50,18 @@ window.onload = function SetValuesOnStartup() {
 }
 
 function SetValues(games, wins, winStreak, maxWinStreak) {
-    var winRate = (wins / games * 100)
+    var winRate = (wins / games * parseInt(100))
     var winPercentage = parseInt(winRate) + "%"
     document.getElementById("winPercentage").innerHTML = "Win Percentage: " + winPercentage
     if (winStreak == undefined || winStreak == 0 || winStreak == parseInt(0)) {
-        document.getElementById("winStreak").innerHTML = "Current Win Streak: " + 0
+        document.getElementById("winStreak").innerHTML = "Current Win Streak: " + parseInt(0)
     }
     else {
         document.getElementById("winStreak").innerHTML = "Current Win Streak: " + winStreak
     }
 
     if (maxWinStreak == undefined || maxWinStreak == 0 || maxWinStreak == parseInt(0)) {
-        document.getElementById("maxWinStreak").innerHTML = "Biggest Win Streak: " + 0
+        document.getElementById("maxWinStreak").innerHTML = "Biggest Win Streak: " + parseInt(0)
     }
     else {
         document.getElementById("maxWinStreak").innerHTML = "Biggest Win Streak: " + maxWinStreak
@@ -182,7 +182,6 @@ function submitPlayer(totalWins, totalGames) {
     checkBirthDate(birthDate)
     checkHeight(height)
     checkState(state)
-    console.log()
 
     // If chosen player matches the random player, show everything as green and remove the text boxes and submit
     if (chosenFirstCaps == randomPlayer[1] && chosenLastCaps == randomPlayer[2]) {
@@ -199,9 +198,9 @@ function submitPlayer(totalWins, totalGames) {
         var winStreak = myStorage.getItem('winStreak')
         var maxWinStreak = myStorage.getItem('maxWinStreak')
 
-        totalWins = parseInt(totalWins) + 1
-        totalGames = parseInt(totalGames) + 1
-        winStreak = parseInt(winStreak) + 1
+        totalWins = parseInt(totalWins) + parseInt(1)
+        totalGames = parseInt(totalGames) + parseInt(1)
+        winStreak = parseInt(winStreak) + parseInt(1)
         
         if (winStreak > maxWinStreak) {
             maxWinStreak = winStreak
@@ -234,8 +233,9 @@ function submitPlayer(totalWins, totalGames) {
         var totalWins = myStorage.getItem('totalWins')
         var totalGames = myStorage.getItem('totalGames')
 
-        totalGames = parseInt(totalGames) + 1
+        totalGames = parseInt(totalGames) + parseInt(1)
         totalWins = parseInt(totalWins)
+        maxWinStreak = parseInt(maxWinStreak)
         winStreak = parseInt(0)
 
         myStorage.setItem('totalGames', totalGames)
@@ -259,15 +259,15 @@ function chooseRandomPlayer() {
     games = randomPlayer[9]
     statusStat = randomPlayer[8]
 
-    console.log("Name: " + randomPlayer[1] + " " + randomPlayer[2])
-    console.log("Team: " + randomPlayer[3])
-    console.log("State: " + randomPlayer[4])
-    console.log("Height: " + randomPlayer[5])
-    console.log("Birth Date: " + randomPlayer[6])
-    console.log("Guernsey: " + randomPlayer[7])
-    console.log("Status: " + randomPlayer[8])
-    console.log("Games: " + randomPlayer[9])
-    console.log("")
+    //console.log("Name: " + randomPlayer[1] + " " + randomPlayer[2])
+    //console.log("Team: " + randomPlayer[3])
+    //console.log("State: " + randomPlayer[4])
+    //console.log("Height: " + randomPlayer[5])
+    //console.log("Birth Date: " + randomPlayer[6])
+    //console.log("Guernsey: " + randomPlayer[7])
+    //console.log("Status: " + randomPlayer[8])
+    //console.log("Games: " + randomPlayer[9])
+    //console.log("")
 
     while (games == "" || games <= 20 || statusStat == "rookie" ){
         randomNumber = Math.floor(Math.random() * players.length)
@@ -275,15 +275,15 @@ function chooseRandomPlayer() {
         games = randomPlayer[9]
         statusStat = randomPlayer[8]
 
-        console.log("Name: " + randomPlayer[1] + " " + randomPlayer[2])
-        console.log("Team: " + randomPlayer[3])
-        console.log("State: " + randomPlayer[4])
-        console.log("Height: " + randomPlayer[5])
-        console.log("Birth Date: " + randomPlayer[6])
-        console.log("Guernsey: " + randomPlayer[7])
-        console.log("Status: " + randomPlayer[8])
-        console.log("Games: " + randomPlayer[9])
-        console.log("")
+        //console.log("Name: " + randomPlayer[1] + " " + randomPlayer[2])
+        //console.log("Team: " + randomPlayer[3])
+        //console.log("State: " + randomPlayer[4])
+        //console.log("Height: " + randomPlayer[5])
+        //console.log("Birth Date: " + randomPlayer[6])
+        //console.log("Guernsey: " + randomPlayer[7])
+        //console.log("Status: " + randomPlayer[8])
+        //console.log("Games: " + randomPlayer[9])
+        //console.log("")
 
     }
     firstName = randomPlayer[1]
