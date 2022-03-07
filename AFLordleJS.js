@@ -196,23 +196,27 @@ function submitPlayer(totalWins, totalGames) {
         var totalWins = myStorage.getItem('totalWins')
         var totalGames = myStorage.getItem('totalGames')
         var winStreak = myStorage.getItem('winStreak')
+        console.log(winStreak)
         var maxWinStreak = myStorage.getItem('maxWinStreak')
 
         totalWins = parseInt(totalWins) + parseInt(1)
         totalGames = parseInt(totalGames) + parseInt(1)
         winStreak = parseInt(winStreak) + parseInt(1)
+        console.log(winStreak)
         
         if (winStreak > maxWinStreak) {
             maxWinStreak = winStreak
         }
+        console.log(winStreak)
 
         myStorage.setItem('totalWins', totalWins)
         myStorage.setItem('totalGames', totalGames)
         myStorage.setItem('winStreak', winStreak)
-        myStorage.setItem('winStreak', winStreak)
         myStorage.setItem('maxWinStreak', maxWinStreak)
+        console.log(winStreak)
 
         SetValues(totalGames, totalWins, winStreak, maxWinStreak)
+        console.log(winStreak)
 
         console.log("WINS: " + totalWins)
         console.log("GAMES: " + totalGames)
@@ -237,15 +241,18 @@ function submitPlayer(totalWins, totalGames) {
         totalWins = parseInt(totalWins)
         maxWinStreak = parseInt(maxWinStreak)
         winStreak = parseInt(0)
+        console.log(winStreak)
 
         myStorage.setItem('totalGames', totalGames)
         myStorage.setItem('winStreak', winStreak)
+        console.log(winStreak)
 
         SetValues(totalGames, totalWins)
         
         console.log("WINS: " + totalWins)
         console.log("GAMES: " + totalGames)
         console.log("WIN STREAK: " + winStreak)
+        console.log(winStreak)
         return
     }
 }
