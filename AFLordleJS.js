@@ -87,6 +87,7 @@ function playGame() {
     document.getElementById("lineText1").style.display="none";
     document.getElementById("Text3").style.display="none";
     tds = document.getElementsByTagName('td');
+    document.getElementById("PlayButton").style.display="none";
 
     for (i = 0; i < tds.length; i++) {
         tds[i].innerHTML = "";
