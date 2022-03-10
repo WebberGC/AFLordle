@@ -63,15 +63,14 @@
 
 
     <h1>AFL Wordle</h1>
-    <p id="Text1" class="Text">  Do you wish to play AFL Wordle</p>
+    <p id="Text1" class="Text">  Enter names in the field, then click submit:</p>
     <p id="Text2" class="Text"></p>
     <p id="Text3" class="Text"></p>
     
-    <input id="fullName" style = "display: none;" type="text" name="full-name" value="" placeholder="Full Name"/> 
-    <input id="submitName" type="submit" style = "display: none;" value="Submit" onclick="submitPlayer()">
+    <input id="fullName" type="text" name="full-name" value="" placeholder="Full Name"/> 
+    <input id="submitName" type="submit" value="Submit" onclick="submitPlayer()">
 
-    <button id="PlayButton" class="PlayButton" onClick="playGame()">Play</button>
-    <button id="ExitButton" class="PlayButton" onClick="Goodbye()">Exit</button>
+    <button id="PlayButton" class="PlayButton" style = "display: none;" onClick="playGame()" >Play</button>
    
     <p id="lineText1" class="lineText1"></p>
 

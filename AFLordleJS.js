@@ -47,35 +47,9 @@ window.onload = function SetValuesOnStartup() {
     document.getElementById("winPercentage").innerHTML = "Win Percentage: " + winPercentage
     document.getElementById("winStreak").innerHTML = "Current Win Streak: " + winStreak
 
-}
-
-function SetValues(games, wins, winStreak, maxWinStreak) {
-    var winRate = (wins / games * parseInt(100))
-    var winPercentage = parseInt(winRate) + "%"
-    document.getElementById("winPercentage").innerHTML = "Win Percentage: " + winPercentage
-    if (winStreak == undefined || winStreak == 0 || winStreak == parseInt(0)) {
-        document.getElementById("winStreak").innerHTML = "Current Win Streak: " + parseInt(0)
-    }
-    else {
-        document.getElementById("winStreak").innerHTML = "Current Win Streak: " + winStreak
-    }
-
-    if (maxWinStreak == undefined || maxWinStreak == 0 || maxWinStreak == parseInt(0)) {
-        document.getElementById("maxWinStreak").innerHTML = "Biggest Win Streak: " + parseInt(0)
-    }
-    else {
-        document.getElementById("maxWinStreak").innerHTML = "Biggest Win Streak: " + maxWinStreak
-    }
-    
-}
-
-// function which starts the game
-function playGame() {
     turns = 0
     guessedPlayers = []
-    // Hides the play and exit buttons
-    document.getElementById("PlayButton").style.display="none";
-    document.getElementById("ExitButton").style.display="none";
+
     document.getElementById("Text2").style.display="none";
     document.getElementById("lineText1").style.display="none";
     document.getElementById("Text3").style.display="none";
@@ -103,6 +77,58 @@ function playGame() {
         }
     }
 
+}
+
+function playGame() {
+    turns = 0
+    guessedPlayers = []
+
+    document.getElementById("Text2").style.display="none";
+    document.getElementById("lineText1").style.display="none";
+    document.getElementById("Text3").style.display="none";
+    tds = document.getElementsByTagName('td');
+
+    for (i = 0; i < tds.length; i++) {
+        tds[i].innerHTML = "";
+        tds[i].className = "black";
+    }
+
+    // Updates text 
+    document.getElementById("Text1").innerHTML = "Enter names in the field, then click submit:";
+
+    // Shows the text boxes and submit button
+    document.getElementById("fullName").style.display="inline-block";
+    document.getElementById("submitName").style.display="inline-block";
+
+    // Chooses a random player
+    var randomPlayer = chooseRandomPlayer()
+
+    // if enter is pressed the submit button is pressed
+    document.body.onkeyup = function(e){
+        if(e.key == 'Enter'){
+            submitPlayer(totalWins, totalGames)
+        }
+    }
+}
+
+function SetValues(games, wins, winStreak, maxWinStreak) {
+    var winRate = (wins / games * parseInt(100))
+    var winPercentage = parseInt(winRate) + "%"
+    document.getElementById("winPercentage").innerHTML = "Win Percentage: " + winPercentage
+    if (winStreak == undefined || winStreak == 0 || winStreak == parseInt(0)) {
+        document.getElementById("winStreak").innerHTML = "Current Win Streak: " + parseInt(0)
+    }
+    else {
+        document.getElementById("winStreak").innerHTML = "Current Win Streak: " + winStreak
+    }
+
+    if (maxWinStreak == undefined || maxWinStreak == 0 || maxWinStreak == parseInt(0)) {
+        document.getElementById("maxWinStreak").innerHTML = "Biggest Win Streak: " + parseInt(0)
+    }
+    else {
+        document.getElementById("maxWinStreak").innerHTML = "Biggest Win Streak: " + maxWinStreak
+    }
+    
 }
 
 // Function which links text boxes to a player in the list, and checks for black, yellow or green info
@@ -189,7 +215,6 @@ function submitPlayer(totalWins, totalGames) {
         document.getElementById("Text1").innerHTML = ("You got it, it was " + " " + randomPlayer[1] + " " + randomPlayer[2] + "! Congratulations!");
         document.getElementById("Text2").innerHTML = ("Do you wish to play again?")
         document.getElementById("PlayButton").style.display="inline-block";
-        document.getElementById("ExitButton").style.display="inline-block";
         document.getElementById("fullName").style.display="none";
         document.getElementById("submitName").style.display="none";
 
@@ -232,7 +257,6 @@ function submitPlayer(totalWins, totalGames) {
         document.getElementById("Text1").innerHTML = ("Sorry, you ran out of tries. The player was " + randomPlayer[1] + " " + randomPlayer[2] + " from " + randomPlayer[3]); 
         document.getElementById("Text2").innerHTML = ("Do you wish to play again?")
         document.getElementById("PlayButton").style.display="inline-block";
-        document.getElementById("ExitButton").style.display="inline-block";
 
         var totalWins = myStorage.getItem('totalWins')
         var totalGames = myStorage.getItem('totalGames')
