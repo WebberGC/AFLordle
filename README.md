@@ -1,7 +1,7 @@
 ## <div align="center">AFLordle</div>
 
 ## :book: About the project
-This is my take on the well-known Wordle game. The Australian Football League (AFL) player is selected at random from a hard-coded array. The player then makes an educated guess about an AFL player and receives feedback based on their prediction. It uses the AFL player's first name, last name, team, state, height, birth date, and guernsey number as hints. I used CSS, HTML and JS for this application.
+This is my take on the well-known Wordle game. The Australian Football League (AFL) player is selected at random from a hard-coded array. The player then makes an educated guess about an AFL player and receives feedback based on their prediction. It uses the AFL player's first name, last name, team, state, height, birth date, and guernsey number as hints. I used CSS, HTML and JS for this application. I was inspired to build this project for my brother, a passionate football supporter.
 <br>
 <br>
 
